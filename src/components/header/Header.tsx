@@ -21,6 +21,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import colors from "../../styles/colors";
 
 interface NavItem {
   label: string;
@@ -120,9 +121,9 @@ export default function Header() {
             onClick={onToggle}
             icon={
               isOpen ? (
-                <CloseIcon color={"#32BEBA"} w={3} h={3} />
+                <CloseIcon color={colors.darkPrimary} w={3} h={3} />
               ) : (
-                <HamburgerIcon color={"#32BEBA"} w={5} h={5} />
+                <HamburgerIcon color={colors.darkPrimary} w={5} h={5} />
               )
             }
             variant={"ghost"}
@@ -149,8 +150,8 @@ export default function Header() {
             display={{ md: "inline-flex" }}
             fontSize={"sm"}
             fontWeight={600}
-            color={"#32BEBA"}
-            borderColor={"#32BEBA"}
+            color={colors.darkPrimary}
+            borderColor={colors.darkPrimary}
             borderWidth={2}
             bg={"#0A192F"}
             _hover={{
@@ -186,7 +187,7 @@ const DesktopNav = () => {
                 color={"#CCD6F6"}
                 _hover={{
                   textDecoration: "none",
-                  color: "#32BEBA",
+                  color: colors.darkPrimary,
                 }}
               >
                 {navItem.label}
