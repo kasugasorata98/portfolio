@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import colors from "../../styles/colors";
 
 const About = () => {
@@ -32,7 +32,7 @@ const About = () => {
           fontSize={{ base: "13px", md: "15px", lg: "20px" }}
           color={colors.darkText}
         >
-          I am a Software Engineer who is versatile in many languages. I'm
+          {`I am a Software Engineer who is versatile in many languages. I'm
           experienced in the field of frontend (Mobile/Website), backend, and
           working with Cloud architectures like AWS. I have also created a
           cryptocurrency trading bot using my knowledge of Node JS, AWS Lambda,
@@ -44,7 +44,7 @@ const About = () => {
           practice of using the brain to think and predict a few steps ahead.
           Just like coding, we need to look a few steps ahead and use if-else
           conditions. When playing games, we are already using if-else
-          conditions in our brains subconsciously.
+          conditions in our brains subconsciously.`}
         </Text>
       </Flex>
     </>
