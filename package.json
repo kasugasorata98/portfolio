@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "serve": "forever start -v -c ts-node server.ts",
+    "serve": "forever start server.js",
     "lint": "next lint"
   },
   "dependencies": {
