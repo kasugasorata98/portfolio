@@ -1,8 +1,17 @@
-import { useRouter } from "next/router";
+import Head from "next/head";
+import Scrollbar from "../components/Scrollbar";
+import MainLayout from "../layouts/MainLayout";
+import About from "./About";
 
 export default function Index() {
-  const router = useRouter();
-  router.push("/home");
-
-  return <></>;
+  return (
+    <Scrollbar>
+      <Head>
+        <title>Jeromy Kho [Software Engineer]</title>
+      </Head>
+      <MainLayout>
+        <About />
+      </MainLayout>
+    </Scrollbar>
+  );
 }
