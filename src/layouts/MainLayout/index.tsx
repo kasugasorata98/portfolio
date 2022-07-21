@@ -8,7 +8,9 @@ const MainLayout: React.FC<{
 }> = ({ children }) => {
   return (
     <Box paddingBlock={5} paddingInline={10} bg={colors.background}>
-      <Header />
+      <Box mb={10}>
+        <Header />
+      </Box>
       <Box pl={4} pr={4}>
         {children}
       </Box>
