@@ -29,7 +29,7 @@ const DesktopNav: React.FC<{
               <Link
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
+                fontSize={13}
                 fontWeight={400}
                 color={"#CCD6F6"}
                 _hover={{
@@ -38,10 +38,19 @@ const DesktopNav: React.FC<{
                 }}
               >
                 <HStack mr={3}>
-                  <Text fontWeight={"500"} color={colors.primary}>{`0${
-                    index + 1
-                  }.`}</Text>
-                  <Text>{navItem.label}</Text>
+                  <Text
+                    letterSpacing={1}
+                    fontFamily={"Space Mono"}
+                    fontSize={12}
+                    color={colors.primary}
+                  >{`0${index + 1}.`}</Text>
+                  <Text
+                    fontSize={12}
+                    letterSpacing={1}
+                    fontFamily={"Space Mono"}
+                  >
+                    {navItem.label}
+                  </Text>
                 </HStack>
               </Link>
             </PopoverTrigger>
@@ -85,7 +94,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           <Text
             transition={"all .3s ease"}
             _groupHover={{ color: colors.darkPrimary }}
-            fontWeight={500}
+            fontWeight={"bold"}
           >
             {label}
           </Text>

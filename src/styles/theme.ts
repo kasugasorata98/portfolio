@@ -3,6 +3,7 @@
 // 1. import `extendTheme` function
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 import "@fontsource/space-mono";
+import "@fontsource/roboto";
 // 2. Add your color mode config
 const config: ThemeConfig = {
     initialColorMode: 'light',
@@ -13,8 +14,8 @@ const config: ThemeConfig = {
 const theme = extendTheme({
     ...config,
     fonts: {
-
-        body: 'Space Mono'
+        heading: 'Space Mono',
+        body: 'Roboto',
     }
 })
 

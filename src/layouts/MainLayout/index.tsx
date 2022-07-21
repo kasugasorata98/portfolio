@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex, HStack, VStack, Text, Divider } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import Header from "../../components/Header";
 import colors from "../../styles/colors";
@@ -7,14 +7,14 @@ const MainLayout: React.FC<{
   children?: ReactNode;
 }> = ({ children }) => {
   return (
-    <Box paddingBlock={5} paddingInline={10} bg={colors.background}>
-      <Box mb={10}>
-        <Header />
-      </Box>
-      <Box pl={4} pr={4}>
-        {children}
-      </Box>
-    </Box>
+    <Flex height={"100vh"} paddingTop={5} bg={colors.background}>
+      <VStack>
+        <Box paddingInline={10} alignSelf={"stretch"}>
+          <Header />
+        </Box>
+        <Box>{children}</Box>
+      </VStack>
+    </Flex>
   );
 };
 

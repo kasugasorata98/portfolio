@@ -8,6 +8,7 @@ import {
   useColorModeValue,
   useDisclosure,
   Image,
+  HStack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import colors from "../../styles/colors";
@@ -88,46 +89,18 @@ export default function Header() {
 
   return (
     <Box>
-      <Flex
-        bg={"#0A192F"}
+      <HStack
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={"#0A192F"}
-        align={"center"}
+        justifyContent={"space-between"}
       >
-        <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
-          <IconButton
-            colorScheme={"none"}
-            onClick={onToggle}
-            _hover={{
-              bg: colors.hoverDark,
-            }}
-            icon={
-              isOpen ? (
-                <CloseIcon color={colors.darkPrimary} w={3} h={3} />
-              ) : (
-                <HamburgerIcon color={colors.darkPrimary} w={5} h={5} />
-              )
-            }
-            variant={"ghost"}
-            aria-label={"Toggle Navigation"}
-          />
-        </Flex>
-        <Flex
-          flex={{ base: 1 }}
-          justify={{ base: "center", md: "space-between" }}
-        >
+        <Flex justify={{ base: "normal", md: "space-between" }}>
           <Box
             boxSize="50px"
             p={2}
+            mr={5}
             alignSelf="center"
             borderWidth={2}
             borderColor={colors.primary}
@@ -151,29 +124,40 @@ export default function Header() {
           </Flex>
         </Flex>
 
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
+        <IconButton
+          display={{ base: "flex", md: "none" }}
+          colorScheme={"none"}
+          onClick={onToggle}
+          _hover={{
+            bg: colors.hoverDark,
+          }}
+          icon={
+            isOpen ? (
+              <CloseIcon color={colors.darkPrimary} w={3} h={3} />
+            ) : (
+              <HamburgerIcon color={colors.darkPrimary} w={5} h={5} />
+            )
+          }
+          variant={"ghost"}
+          aria-label={"Toggle Navigation"}
+        />
+
+        <Button
+          colorScheme={"none"}
+          display={{ base: "none", md: "inline-flex" }}
+          fontSize={15}
+          fontWeight={500}
+          color={colors.primary}
+          borderColor={colors.primary}
+          borderWidth={2}
+          bg={colors.background}
+          _hover={{
+            bg: colors.hoverDark,
+          }}
         >
-          <Button
-            colorScheme={"none"}
-            display={{ md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={500}
-            color={colors.primary}
-            borderColor={colors.primary}
-            borderWidth={2}
-            bg={colors.background}
-            _hover={{
-              bg: colors.hoverDark,
-            }}
-          >
-            Resume
-          </Button>
-        </Stack>
-      </Flex>
+          Resume
+        </Button>
+      </HStack>
 
       <Collapse in={isOpen} animateOpacity>
         <MobileNav NAV_ITEMS={NAV_ITEMS} />
