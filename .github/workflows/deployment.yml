@@ -26,4 +26,3 @@ jobs:
       - run: npm i
       - run: npm run build
       - run: npm run serve
-      - run: npm run restart
