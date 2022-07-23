@@ -21,8 +21,8 @@ const Loading: React.FC<{
             scale: [1, 2],
             rotate: [0, 1080],
           }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 0 }}
+          whileInView={{ opacity: 1, y: "-200%" }}
           // @ts-ignore no problem in operation, although type error appears.
           transition={{
             duration: duration,
