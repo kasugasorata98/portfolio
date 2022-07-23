@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "pm2 delete server.js 2> /dev/null &&  pm2 start server.js",
+    "start": "pm2 start server.js",
+    "stop": "pm2 delete server.js 2> /dev/null",
     "lint": "next lint"
   },
   "dependencies": {
@@ -16,9 +17,9 @@
     "@fontsource/roboto": "^4.5.7",
     "@fontsource/space-mono": "^4.5.8",
     "express": "^4.18.1",
-    "forever": "^4.0.3",
     "framer-motion": "^6.5.1",
     "next": "12.1.6",
+    "pm2": "^5.2.0",
     "react": "18.2.0",
     "react-custom-scrollbars-2": "^4.5.0",
     "react-dom": "18.2.0"
