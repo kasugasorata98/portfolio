@@ -33,7 +33,7 @@ const About = () => {
           <Text
             letterSpacing={2}
             fontWeight={"bold"}
-            fontSize={{ base: "24px", md: "48px", lg: "65px", xl: "70px" }}
+            fontSize={{ base: "24px", md: "48px", lg: "60px", xl: "65px" }}
             color={colors.lightText}
           >
             Jeromy Kho.
@@ -42,7 +42,7 @@ const About = () => {
           <Text
             letterSpacing={2}
             fontWeight={"bold"}
-            fontSize={{ base: "24px", md: "48px", lg: "65px", xl: "70px" }}
+            fontSize={{ base: "24px", md: "48px", lg: "60px", xl: "65px" }}
             color={colors.darkText}
           >
             {`I create. You consume.`}
@@ -50,7 +50,7 @@ const About = () => {
           <Text
             letterSpacing={1}
             mt={5}
-            mr={{ base: 0, md: 150, lg: 300, xl: 500 }}
+            mr={{ base: 0, md: 150, lg: 300, xl: 450 }}
             fontSize={{ base: "13px", md: "15px", lg: "16px" }}
             color={colors.darkText}
           >
@@ -59,6 +59,7 @@ const About = () => {
           Currently, I'm focused on building my knowledge and experience on cloud infra to eventually be a devops at
           `}
             <Link
+              target="_blank"
               sx={{
                 textDecoration: "none",
                 transform: "scaleX(0)",
@@ -80,7 +81,7 @@ const About = () => {
           <Button
             fontFamily={"Space Mono"}
             colorScheme={"none"}
-            fontSize={15}
+            fontSize={{ base: 11, md: 13, xl: 15 }}
             mt={10}
             p={7}
             alignSelf="flex-start"
@@ -93,7 +94,15 @@ const About = () => {
               bg: colors.hoverDark,
             }}
           >
-            Check out my Github!
+            <Link
+              target="_blank"
+              style={{
+                textDecoration: "none",
+              }}
+              href="https://github.com/kasugasorata98/portfolio"
+            >
+              This Portfolio's Github Repository!
+            </Link>
           </Button>
         </ChakraBox>
       </Flex>

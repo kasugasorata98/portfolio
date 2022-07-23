@@ -28,6 +28,7 @@ const DesktopNav: React.FC<{
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
+                target="_blank"
                 p={2}
                 href={navItem.href ?? "#"}
                 fontSize={13}
@@ -83,6 +84,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const hoverColor = "#f5fdfb";
   return (
     <Link
+      target="_blank"
       href={href}
       role={"group"}
       display={"block"}

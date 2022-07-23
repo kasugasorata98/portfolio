@@ -175,6 +175,7 @@ const Header: React.FC<{
             }}
           >
             <Link
+              target="_blank"
               style={{
                 textDecoration: "none",
               }}
