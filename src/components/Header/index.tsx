@@ -9,6 +9,7 @@ import {
   useDisclosure,
   Image,
   HStack,
+  Link,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import colors from "../../styles/colors";
@@ -18,6 +19,7 @@ import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 import { useEffect, useState } from "react";
 import { Fade, ScaleFade, Slide, SlideFade } from "@chakra-ui/react";
+import ChakraBox from "../ChakraBox";
 
 const NAV_ITEMS: Array<NavItem> = [
   {
@@ -93,83 +95,100 @@ const Header: React.FC<{
 
   return (
     <Box>
-      <HStack
-        // position={{ base: "unset", md: "fixed" }}
-        width={"100vw"}
-        color={useColorModeValue("gray.600", "white")}
-        paddingInline={10}
-        boxShadow={showShadow ? "md" : "none"}
-        justifyContent={"space-between"}
-        paddingBottom={{ base: 5, md: 0 }}
-        paddingTop={{ base: 5, md: 0 }}
-        backdropFilter={"blur(10px) saturate(100%)"}
+      <ChakraBox
+        initial={{ opacity: 0, x: "-50%" }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        // @ts-ignore no problem in operation, although type error appears.
+        transition={{
+          duration: 0.5,
+        }}
       >
-        <Flex flexGrow={1} justify={{ base: "normal", md: "space-between" }}>
-          <Box
-            boxSize="50px"
-            p={2}
-            mr={5}
-            alignSelf="center"
-            borderWidth={2}
-            borderColor={colors.primary}
+        <HStack
+          // position={{ base: "unset", md: "fixed" }}
+          width={"100vw"}
+          color={useColorModeValue("gray.600", "white")}
+          paddingInline={10}
+          boxShadow={showShadow ? "md" : "none"}
+          justifyContent={"space-between"}
+          paddingBottom={{ base: 5, md: 3 }}
+          paddingTop={{ base: 5, md: 3 }}
+          backdropFilter={"blur(10px) saturate(100%)"}
+        >
+          <Flex flexGrow={1} justify={{ base: "normal", md: "space-between" }}>
+            <Box
+              boxSize="50px"
+              p={2}
+              mr={5}
+              alignSelf="center"
+              borderWidth={2}
+              borderColor={colors.primary}
+              _hover={{
+                bg: colors.hoverDark,
+                cursor: "pointer",
+              }}
+            >
+              <Image
+                onClick={() => {
+                  router.push("/");
+                }}
+                alignSelf={"center"}
+                src="assets/images/logo.png"
+                alt="J"
+              />
+            </Box>
+
+            <Flex display={{ base: "none", md: "flex" }} ml={5}>
+              <DesktopNav NAV_ITEMS={NAV_ITEMS} />
+            </Flex>
+          </Flex>
+
+          <IconButton
+            display={{ base: "flex", md: "none" }}
+            colorScheme={"none"}
+            onClick={onToggle}
             _hover={{
               bg: colors.hoverDark,
-              cursor: "pointer",
+            }}
+            icon={
+              isOpen ? (
+                <CloseIcon color={colors.darkPrimary} w={3} h={3} />
+              ) : (
+                <HamburgerIcon color={colors.darkPrimary} w={5} h={5} />
+              )
+            }
+            variant={"ghost"}
+            aria-label={"Toggle Navigation"}
+          />
+
+          <Button
+            colorScheme={"none"}
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={15}
+            fontWeight={500}
+            color={colors.primary}
+            borderColor={colors.primary}
+            borderWidth={2}
+            bg={colors.background}
+            _hover={{
+              bg: colors.hoverDark,
             }}
           >
-            <Image
-              onClick={() => {
-                router.push("/");
+            <Link
+              style={{
+                textDecoration: "none",
               }}
-              alignSelf={"center"}
-              src="assets/images/logo.png"
-              alt="J"
-            />
-          </Box>
+              href={"https://resume.io/r/oqPCVLgfX"}
+            >
+              Resume
+            </Link>
+          </Button>
+        </HStack>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={5}>
-            <DesktopNav NAV_ITEMS={NAV_ITEMS} />
-          </Flex>
-        </Flex>
-
-        <IconButton
-          display={{ base: "flex", md: "none" }}
-          colorScheme={"none"}
-          onClick={onToggle}
-          _hover={{
-            bg: colors.hoverDark,
-          }}
-          icon={
-            isOpen ? (
-              <CloseIcon color={colors.darkPrimary} w={3} h={3} />
-            ) : (
-              <HamburgerIcon color={colors.darkPrimary} w={5} h={5} />
-            )
-          }
-          variant={"ghost"}
-          aria-label={"Toggle Navigation"}
-        />
-
-        <Button
-          colorScheme={"none"}
-          display={{ base: "none", md: "inline-flex" }}
-          fontSize={15}
-          fontWeight={500}
-          color={colors.primary}
-          borderColor={colors.primary}
-          borderWidth={2}
-          bg={colors.background}
-          _hover={{
-            bg: colors.hoverDark,
-          }}
-        >
-          Resume
-        </Button>
-      </HStack>
-
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav NAV_ITEMS={NAV_ITEMS} />
-      </Collapse>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav NAV_ITEMS={NAV_ITEMS} />
+        </Collapse>
+      </ChakraBox>
     </Box>
   );
 };

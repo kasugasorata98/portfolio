@@ -1,5 +1,6 @@
-import { Box, Flex, HStack, VStack, Text, Divider } from "@chakra-ui/react";
+import { Box, Flex, HStack, VStack, Divider } from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
+import ChakraBox from "../../components/ChakraBox";
 import Header from "../../components/Header";
 import Scrollbar from "../../components/Scrollbar";
 import { ScrollFrame } from "../../entities/types";
@@ -33,7 +34,6 @@ const MainLayout: React.FC<{
           <Box position={"fixed"} zIndex={10} alignSelf={"stretch"}>
             <Header showShadow={showShadow} />
           </Box>
-
           <HStack>
             <Box width={{ base: 0, md: 100 }}>
               <VStack
@@ -45,10 +45,20 @@ const MainLayout: React.FC<{
                 alignSelf={"flex-end"}
                 justify={"center"}
               >
-                <Divider height={"28"} orientation="vertical" />
+                <ChakraBox
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  // @ts-ignore no problem in operation, although type error appears.
+                  transition={{
+                    delay: 2,
+                    duration: 0.5,
+                  }}
+                >
+                  <Divider height={"28"} orientation="vertical" />
+                </ChakraBox>
               </VStack>
             </Box>
-            <Box height={"100vh"}>{children}</Box>
+            <Box>{children}</Box>
             <Box width={{ base: 0, md: 100 }}>
               <VStack
                 position={{ base: "unset", md: "fixed" }}
@@ -59,7 +69,18 @@ const MainLayout: React.FC<{
                 alignSelf={"flex-end"}
                 justify={"center"}
               >
-                <Divider height={"28"} orientation="vertical" />
+                <ChakraBox
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  // @ts-ignore no problem in operation, although type error appears.
+                  transition={{
+                    delay: 2,
+                    duration: 0.5,
+                  }}
+                >
+                  <Divider height={"28"} orientation="vertical" />
+                </ChakraBox>
               </VStack>
             </Box>
           </HStack>
