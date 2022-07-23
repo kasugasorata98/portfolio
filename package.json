@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "serve": "node server.js",
+    "serve": "forever start server.js",
     "restart": "forever restart server.js",
     "lint": "next lint"
   },
