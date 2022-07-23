@@ -1,25 +1,26 @@
-import { Button, chakra, Fade, Flex, Link, Text } from "@chakra-ui/react";
-import { isValidMotionProp, motion } from "framer-motion";
+import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
+import ChakraBox from "../../components/ChakraBox";
 import colors from "../../styles/colors";
-
-const ChakraBox = chakra(motion.div, {
-  /**
-   * Allow motion props and the children prop to be forwarded.
-   * All other chakra props not matching the motion props will still be forwarded.
-   */
-  shouldForwardProp: (prop) => isValidMotionProp(prop) || prop === "children",
-});
 
 const About = () => {
   return (
-    <>
+    <Box height="100vh">
       <Flex
         height={"100%"}
         justify={"center"}
         direction={"column"}
         marginInline={{ base: 10, md: 100, xl: 250 }}
       >
-        <Fade in={true}>
+        <ChakraBox
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          // @ts-ignore no problem in operation, although type error appears.
+          transition={{
+            duration: 0.5,
+            delay: 0.5,
+          }}
+        >
           <Text
             mb={3}
             fontFamily={"Space Mono"}
@@ -28,26 +29,15 @@ const About = () => {
           >
             Hi, my name is
           </Text>
-          <ChakraBox
-            animate={{
-              scale: [0.2, 0.4, 0.6, 0.8, 1],
-              rotate: [0, 0, 270, 270, 0],
-            }}
-            // @ts-ignore no problem in operation, although type error appears.
-            transition={{
-              duration: 3,
-              ease: "easeInOut",
-            }}
+
+          <Text
+            letterSpacing={2}
+            fontWeight={"bold"}
+            fontSize={{ base: "24px", md: "48px", lg: "65px", xl: "70px" }}
+            color={colors.lightText}
           >
-            <Text
-              letterSpacing={2}
-              fontWeight={"bold"}
-              fontSize={{ base: "24px", md: "48px", lg: "65px", xl: "70px" }}
-              color={colors.lightText}
-            >
-              Jeromy Kho.
-            </Text>
-          </ChakraBox>
+            Jeromy Kho.
+          </Text>
 
           <Text
             letterSpacing={2}
@@ -105,9 +95,9 @@ const About = () => {
           >
             Check out my Github!
           </Button>
-        </Fade>
+        </ChakraBox>
       </Flex>
-    </>
+    </Box>
   );
 };
 
