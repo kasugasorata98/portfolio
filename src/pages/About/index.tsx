@@ -101,7 +101,7 @@ const About = () => {
               }}
               href="https://github.com/kasugasorata98/portfolio"
             >
-              This Portfolio's Github Repository!
+              {`This Portfolio's Github Repository!`}
             </Link>
           </Button>
         </ChakraBox>
