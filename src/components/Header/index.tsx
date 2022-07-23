@@ -128,10 +128,9 @@ const Header: React.FC<{
         <HStack
           width={"100vw"}
           color={useColorModeValue("gray.600", "white")}
-          paddingInline={10}
           boxShadow={showShadow ? "md" : "none"}
-          paddingBottom={{ base: 5, md: 3 }}
-          paddingTop={{ base: 5, md: 3 }}
+          paddingBlock={{ base: 5, md: 5 }}
+          paddingInline={{ base: 5, md: 5 }}
           backdropFilter={"blur(10px) saturate(100%)"}
         >
           <HStack
@@ -142,7 +141,6 @@ const Header: React.FC<{
             <Box
               boxSize="50px"
               p={2}
-              mr={5}
               alignSelf="center"
               borderWidth={2}
               borderColor={colors.primary}
