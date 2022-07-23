@@ -5,9 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start",
-    "serve": "pm2 start server.js",
-    "restart": "pm2 restart server.js",
+    "start": "pm2 delete server.js 2> /dev/null &&  pm2 start server.js",
     "lint": "next lint"
   },
   "dependencies": {
