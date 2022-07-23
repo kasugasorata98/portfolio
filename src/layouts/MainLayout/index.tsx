@@ -1,4 +1,11 @@
-import { Box, Flex, HStack, VStack, Divider } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  HStack,
+  VStack,
+  Divider,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
 import Snowfall from "../../lib/react-snowfall/lib/Snowfall";
 import ChakraBox from "../../components/ChakraBox";
@@ -21,6 +28,7 @@ const MainLayout: React.FC<{
     top: 0,
   });
   const [showShadow, setShowShadow] = useState<boolean>(false);
+  const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)");
   return (
     <Scrollbar
       onScrollFrame={(value: ScrollFrame) => {
@@ -37,7 +45,7 @@ const MainLayout: React.FC<{
           zIndex: 11,
           position: "absolute",
         }}
-        snowflakeCount={100}
+        snowflakeCount={isLargerThan1280 ? 50 : 25}
       />
       <Flex bg={colors.background}>
         <VStack position={"relative"}>
