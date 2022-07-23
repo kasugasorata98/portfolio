@@ -37,6 +37,7 @@ const MainLayout: React.FC<{
           zIndex: 11,
           position: "absolute",
         }}
+        snowflakeCount={100}
       />
       <Flex bg={colors.background}>
         <VStack position={"relative"}>
