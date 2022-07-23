@@ -13,9 +13,11 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import colors from "../../styles/colors";
 import { useRouter } from "next/router";
-import { NavItem } from "../../entities/types";
+import { NavItem, ScrollFrame } from "../../entities/types";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
+import { useEffect, useState } from "react";
+import { Fade, ScaleFade, Slide, SlideFade } from "@chakra-ui/react";
 
 const NAV_ITEMS: Array<NavItem> = [
   {
@@ -83,20 +85,26 @@ const NAV_ITEMS: Array<NavItem> = [
   },
 ];
 
-export default function Header() {
+const Header: React.FC<{
+  showShadow?: boolean;
+}> = ({ showShadow }) => {
   const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box>
       <HStack
+        // position={{ base: "unset", md: "fixed" }}
+        width={"100vw"}
         color={useColorModeValue("gray.600", "white")}
-        borderBottom={1}
-        borderStyle={"solid"}
-        borderColor={"#0A192F"}
+        paddingInline={10}
+        boxShadow={showShadow ? "md" : "none"}
         justifyContent={"space-between"}
+        paddingBottom={{ base: 5, md: 0 }}
+        paddingTop={{ base: 5, md: 0 }}
+        backdropFilter={"blur(10px) saturate(100%)"}
       >
-        <Flex justify={{ base: "normal", md: "space-between" }}>
+        <Flex flexGrow={1} justify={{ base: "normal", md: "space-between" }}>
           <Box
             boxSize="50px"
             p={2}
@@ -119,7 +127,7 @@ export default function Header() {
             />
           </Box>
 
-          <Flex display={{ base: "none", md: "flex" }} mr={6}>
+          <Flex display={{ base: "none", md: "flex" }} ml={5}>
             <DesktopNav NAV_ITEMS={NAV_ITEMS} />
           </Flex>
         </Flex>
@@ -164,4 +172,6 @@ export default function Header() {
       </Collapse>
     </Box>
   );
-}
+};
+
+export default Header;

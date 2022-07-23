@@ -19,7 +19,7 @@ const MobileNav: React.FC<{
       borderRadius={10}
       boxShadow="inherit"
       bg={"#112240"}
-      mt={2}
+      marginInline={10}
       p={4}
       display={{ md: "none" }}
     >
