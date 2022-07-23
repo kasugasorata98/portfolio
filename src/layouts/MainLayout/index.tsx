@@ -1,6 +1,6 @@
 import { Box, Flex, HStack, VStack, Divider } from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
-import Snowfall from "react-snowfall";
+import Snowfall from "../../lib/react-snowfall/lib/Snowfall";
 import ChakraBox from "../../components/ChakraBox";
 import Header from "../../components/Header";
 import Scrollbar from "../../components/Scrollbar";
