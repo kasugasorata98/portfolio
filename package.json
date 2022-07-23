@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.9.3",
     "@fontsource/roboto": "^4.5.7",
     "@fontsource/space-mono": "^4.5.8",
+    "forever": "^4.0.3",
     "framer-motion": "^6.5.1",
     "next": "12.1.6",
     "react": "18.2.0",
