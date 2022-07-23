@@ -6,12 +6,12 @@ import Loading from "./Loading";
 
 export default function Index() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
   return (
     <>
       <Head>
         <title>Jeromy Kho [Software Engineer]</title>
       </Head>
+
       {isLoading ? (
         <Loading
           onAnimationComplete={() => {

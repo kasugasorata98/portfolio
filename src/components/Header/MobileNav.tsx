@@ -65,7 +65,6 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           mt={2}
           pl={4}
           borderLeft={2}
-          borderStyle={"solid"}
           borderColor={colors.primary}
           color={colors.lightText}
           align={"start"}

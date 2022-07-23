@@ -10,16 +10,19 @@ import {
   Image,
   HStack,
   Link,
+  Text,
+  FormLabel,
+  Switch,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import colors from "../../styles/colors";
 import { useRouter } from "next/router";
-import { NavItem, ScrollFrame } from "../../entities/types";
+import { NavItem } from "../../entities/types";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 import { useEffect, useState } from "react";
-import { Fade, ScaleFade, Slide, SlideFade } from "@chakra-ui/react";
 import ChakraBox from "../ChakraBox";
+import ReactPlayer from "react-player";
 
 const NAV_ITEMS: Array<NavItem> = [
   {
@@ -93,8 +96,26 @@ const Header: React.FC<{
   const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
 
+  const [hasWindow, setHasWindow] = useState(false);
+  const [isMuted, setMuted] = useState(true);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setHasWindow(true);
+    }
+  }, []);
+
   return (
     <Box>
+      {hasWindow && (
+        <ReactPlayer
+          width={0}
+          height={0}
+          loop={true}
+          playing={true}
+          muted={isMuted}
+          url="https://www.youtube.com/watch?v=tYNv5td6ALU"
+        />
+      )}
       <ChakraBox
         initial={{ opacity: 0, x: "-50%" }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -105,17 +126,19 @@ const Header: React.FC<{
         }}
       >
         <HStack
-          // position={{ base: "unset", md: "fixed" }}
           width={"100vw"}
           color={useColorModeValue("gray.600", "white")}
           paddingInline={10}
           boxShadow={showShadow ? "md" : "none"}
-          justifyContent={"space-between"}
           paddingBottom={{ base: 5, md: 3 }}
           paddingTop={{ base: 5, md: 3 }}
           backdropFilter={"blur(10px) saturate(100%)"}
         >
-          <Flex flexGrow={1} justify={{ base: "normal", md: "space-between" }}>
+          <HStack
+            flexGrow={1}
+            alignItems={"center"}
+            justify={{ base: "normal", md: "space-between" }}
+          >
             <Box
               boxSize="50px"
               p={2}
@@ -138,13 +161,62 @@ const Header: React.FC<{
               />
             </Box>
 
-            <Flex display={{ base: "none", md: "flex" }} ml={5}>
+            <Flex display={{ base: "none", md: "none", lg: "flex" }} ml={5}>
               <DesktopNav NAV_ITEMS={NAV_ITEMS} />
             </Flex>
-          </Flex>
-
+          </HStack>
+          <Box>
+            <Button
+              colorScheme={"none"}
+              fontFamily={"Space Mono"}
+              fontSize={13}
+              color={colors.primary}
+              display={{ base: "none", md: "none", lg: "flex" }}
+              fontWeight={500}
+              borderColor={colors.primary}
+              borderWidth={2}
+              bg={colors.background}
+              _hover={{
+                bg: colors.hoverDark,
+              }}
+            >
+              <Link
+                target="_blank"
+                style={{
+                  textDecoration: "none",
+                }}
+                href={"https://resume.io/r/oqPCVLgfX"}
+              >
+                Resume
+              </Link>
+            </Button>
+          </Box>
+          <HStack
+            borderWidth={2}
+            borderColor={colors.primary}
+            paddingBlock={2}
+            paddingInline={4}
+            borderRadius={6}
+          >
+            <Text
+              fontFamily={"Space Mono"}
+              fontSize={13}
+              color={colors.primary}
+            >
+              Music
+            </Text>
+            <Switch
+              colorScheme={"teal"}
+              size={"md"}
+              isChecked={!isMuted}
+              onChange={() => {
+                console.log("clicked");
+                setMuted(!isMuted);
+              }}
+            />
+          </HStack>
           <IconButton
-            display={{ base: "flex", md: "none" }}
+            display={{ base: "flex", md: "flex", lg: "none" }}
             colorScheme={"none"}
             onClick={onToggle}
             _hover={{
@@ -160,30 +232,6 @@ const Header: React.FC<{
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
-
-          <Button
-            colorScheme={"none"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={15}
-            fontWeight={500}
-            color={colors.primary}
-            borderColor={colors.primary}
-            borderWidth={2}
-            bg={colors.background}
-            _hover={{
-              bg: colors.hoverDark,
-            }}
-          >
-            <Link
-              target="_blank"
-              style={{
-                textDecoration: "none",
-              }}
-              href={"https://resume.io/r/oqPCVLgfX"}
-            >
-              Resume
-            </Link>
-          </Button>
         </HStack>
 
         <Collapse in={isOpen} animateOpacity>

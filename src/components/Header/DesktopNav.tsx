@@ -29,7 +29,7 @@ const DesktopNav: React.FC<{
             <PopoverTrigger>
               <Link
                 target="_blank"
-                p={2}
+                // p={2}
                 href={navItem.href ?? "#"}
                 fontSize={13}
                 fontWeight={400}
