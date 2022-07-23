@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import Snowfall from "react-snowfall";
 import MainLayout from "../layouts/MainLayout";
 import About from "./About";
 import Loading from "./Loading";

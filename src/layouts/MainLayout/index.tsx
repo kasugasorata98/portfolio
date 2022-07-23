@@ -1,5 +1,6 @@
 import { Box, Flex, HStack, VStack, Divider } from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
+import Snowfall from "react-snowfall";
 import ChakraBox from "../../components/ChakraBox";
 import Header from "../../components/Header";
 import Scrollbar from "../../components/Scrollbar";
@@ -29,6 +30,14 @@ const MainLayout: React.FC<{
         });
       }}
     >
+      <Snowfall
+        style={{
+          height: "100vh",
+          width: "100vw",
+          zIndex: 11,
+          position: "absolute",
+        }}
+      />
       <Flex bg={colors.background}>
         <VStack position={"relative"}>
           <Box position={"fixed"} zIndex={10} alignSelf={"stretch"}>
