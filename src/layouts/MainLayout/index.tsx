@@ -5,6 +5,8 @@ import {
   VStack,
   Divider,
   useMediaQuery,
+  Image,
+  Link,
 } from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
 import Snowfall from "../../lib/react-snowfall/lib/Snowfall";
@@ -13,7 +15,12 @@ import Header from "../../components/Header";
 import Scrollbar from "../../components/Scrollbar";
 import { ScrollFrame } from "../../entities/types";
 import colors from "../../styles/colors";
-
+import Lottie from "lottie-react";
+import WhatsAppAnimation from "../../lotties/whatsapp.json";
+import FacebookAnimation from "../../lotties/facebook.json";
+import LinkedinAnimation from "../../lotties/linkedin.json";
+import GithubAnimation from "../../lotties/github.json";
+import InstagramAnimation from "../../lotties/instagram.json";
 const MainLayout: React.FC<{
   children?: ReactNode;
 }> = ({ children }) => {
@@ -29,6 +36,31 @@ const MainLayout: React.FC<{
   });
   const [showShadow, setShowShadow] = useState<boolean>(false);
   const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)");
+  const socialButtons: Array<{
+    animation: any;
+    href: string;
+  }> = [
+    {
+      animation: WhatsAppAnimation,
+      href: "https://api.whatsapp.com/send?phone=60127816203",
+    },
+    {
+      animation: FacebookAnimation,
+      href: "https://www.facebook.com/jeromy.kho/",
+    },
+    {
+      animation: LinkedinAnimation,
+      href: "https://www.linkedin.com/in/jeromy-kho-b06052212/",
+    },
+    {
+      animation: GithubAnimation,
+      href: "https://github.com/kasugasorata98",
+    },
+    {
+      animation: InstagramAnimation,
+      href: "https://www.instagram.com/jeromy_kho/?hl=en",
+    },
+  ];
   return (
     <Scrollbar
       onScrollFrame={(value: ScrollFrame) => {
@@ -72,7 +104,36 @@ const MainLayout: React.FC<{
                     duration: 0.5,
                   }}
                 >
-                  <Divider height={"28"} orientation="vertical" />
+                  <VStack>
+                    {socialButtons.map((social, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          _hover={{
+                            width: 20,
+                            transition: "0.5s",
+                            cursor: "pointer",
+                          }}
+                          width={"12"}
+                          target={"_blank"}
+                          href={social.href}
+                        >
+                          <Lottie
+                            animationData={social.animation}
+                            loop={true}
+                          />
+                        </Link>
+                      );
+                    })}
+
+                    <Divider
+                      style={{
+                        marginTop: 20,
+                      }}
+                      height={"28"}
+                      orientation="vertical"
+                    />
+                  </VStack>
                 </ChakraBox>
               </VStack>
             </Box>
