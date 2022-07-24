@@ -60,6 +60,7 @@ const DesktopNav: React.FC<{
                 border={0}
                 boxShadow={"xl"}
                 bg={popoverContentBgColor}
+                mt={4}
                 p={4}
                 rounded={"xl"}
                 minW={"sm"}
