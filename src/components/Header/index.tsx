@@ -204,6 +204,7 @@ const Header: React.FC<{
               Music
             </Text>
             <Switch
+              disabled={!hasWindow}
               colorScheme={"teal"}
               size={"md"}
               isChecked={!isMuted}
