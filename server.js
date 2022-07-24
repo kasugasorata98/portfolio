@@ -18,7 +18,7 @@ app.prepare().then(() => {
         let parsedUrl;
         if (req?.url) parsedUrl = parse(req.url, true);
         handle(req, res, parsedUrl);
-    }).listen(3001, () => {
-        console.log("> Server started on https://localhost:3001");
+    }).listen(443, () => {
+        console.log("> Server started on https://localhost:443");
     });
 });
