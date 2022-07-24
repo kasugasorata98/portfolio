@@ -13,6 +13,7 @@ import {
   Text,
   FormLabel,
   Switch,
+  Tooltip,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import colors from "../../styles/colors";
@@ -23,7 +24,8 @@ import MobileNav from "./MobileNav";
 import { useEffect, useState } from "react";
 import ChakraBox from "../ChakraBox";
 import ReactPlayer from "react-player";
-
+import MusicAnimation from "../../lotties/music.json";
+import Lottie from "lottie-react";
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "About",
@@ -189,7 +191,32 @@ const Header: React.FC<{
               </Link>
             </Button>
           </Box>
-          <HStack
+
+          <Tooltip
+            placement="bottom-start"
+            label={isMuted ? "Play music!" : "Stop playing"}
+          >
+            <Box
+              _hover={{
+                cursor: "pointer",
+                transition: "0.5s",
+              }}
+              onClick={() => {
+                setMuted(!isMuted);
+              }}
+              width={14}
+            >
+              <Lottie
+                animationData={MusicAnimation}
+                disabled={!hasWindow}
+                autoplay={!isMuted}
+                loop={!isMuted}
+                onClick={() => setMuted(!isMuted)}
+              />
+            </Box>
+          </Tooltip>
+
+          {/* <HStack
             borderWidth={2}
             borderColor={colors.primary}
             paddingBlock={2}
@@ -203,6 +230,7 @@ const Header: React.FC<{
             >
               Music
             </Text>
+
             <Switch
               disabled={!hasWindow}
               colorScheme={"teal"}
@@ -210,10 +238,10 @@ const Header: React.FC<{
               isChecked={!isMuted}
               onChange={() => {
                 console.log("clicked");
-                setMuted(!isMuted);
+                ;
               }}
             />
-          </HStack>
+          </HStack> */}
           <IconButton
             display={{ base: "flex", md: "flex", lg: "none" }}
             colorScheme={"none"}
