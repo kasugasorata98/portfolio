@@ -5,7 +5,7 @@ import {
   VStack,
   Divider,
   useMediaQuery,
-  Image,
+  Text,
   Link,
 } from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
@@ -61,6 +61,7 @@ const MainLayout: React.FC<{
       href: "https://www.instagram.com/jeromy_kho/?hl=en",
     },
   ];
+  const email = "jeromykho98@gmail.com";
   return (
     <Scrollbar
       onScrollFrame={(value: ScrollFrame) => {
@@ -96,8 +97,8 @@ const MainLayout: React.FC<{
                 justify={"center"}
               >
                 <ChakraBox
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  initial={{ y: "100%", opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
                   // @ts-ignore no problem in operation, although type error appears.
                   transition={{
                     delay: 2,
@@ -149,8 +150,8 @@ const MainLayout: React.FC<{
                 justify={"center"}
               >
                 <ChakraBox
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
+                  initial={{ y: "100%", opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
                   // @ts-ignore no problem in operation, although type error appears.
                   transition={{
@@ -158,7 +159,33 @@ const MainLayout: React.FC<{
                     duration: 0.5,
                   }}
                 >
-                  <Divider height={"28"} orientation="vertical" />
+                  <VStack>
+                    <Link
+                      mb={"20"}
+                      padding={10}
+                      fontFamily="Space Mono"
+                      fontSize="12"
+                      letterSpacing={3}
+                      fontWeight={"bold"}
+                      href={`mailto:${email}`}
+                      target="_blank"
+                      style={{
+                        textDecoration: "none",
+                        transform: "rotate(90deg)",
+                      }}
+                      _hover={{
+                        color: colors.darkPrimary,
+                        marginBottom: 24,
+                        fontSize: "13",
+                        transition: "0.5s",
+                        cursor: "pointer",
+                      }}
+                      color={colors.lightText}
+                    >
+                      {email}
+                    </Link>
+                    <Divider height={"28"} orientation="vertical" />
+                  </VStack>
                 </ChakraBox>
               </VStack>
             </Box>
