@@ -9,7 +9,7 @@ const About = () => {
         height={"100%"}
         justify={"center"}
         direction={"column"}
-        marginInline={{ base: 10, md: 100, xl: 250 }}
+        marginInline={{ base: 10, md: 75, lg: 100, xl: 200 }}
       >
         <ChakraBox
           initial={{ opacity: 0, x: 100 }}
