@@ -194,7 +194,7 @@ const Header: React.FC<{
 
           <Tooltip
             placement="bottom-start"
-            label={isMuted ? "Play music!" : "Stop playing"}
+            label={isMuted ? "Play music" : "Stop playing"}
           >
             <Box
               _hover={{
