@@ -113,6 +113,7 @@ const MainLayout: React.FC<{
                           _hover={{
                             width: 20,
                             transition: "0.5s",
+                            transitionTimingFunction: "ease-in-out",
                             cursor: "pointer",
                           }}
                           width={"12"}
@@ -126,7 +127,6 @@ const MainLayout: React.FC<{
                         </Link>
                       );
                     })}
-
                     <Divider
                       style={{
                         marginTop: 20,
