@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "pm2 start server.js",
-    "stop": "pm2 delete server.js 2> /dev/null || true",
+    "start": "pm2 start --name=portfolio server.js",
+    "stop": "pm2 delete portfolio 2> /dev/null || true",
     "lint": "next lint"
   },
   "dependencies": {
