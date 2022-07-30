@@ -104,7 +104,7 @@ const About = () => {
                   </Text>
                 </Box>
                 <Text mb={2} fontSize={17} color={colors.darkText}>
-                  Here are a few technologies I've been working with recently:
+                  {`Here are a few technologies I've been working with recently:`}
                 </Text>
                 <HStack paddingTop={5} spacing={"16"}>
                   <VStack alignItems={"flex-start"}>
