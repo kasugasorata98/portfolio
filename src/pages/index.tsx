@@ -46,16 +46,16 @@ export default function Index() {
             });
           }}
         >
-          <Snowfall
-            style={{
-              height: "100%",
-              width: "100vw",
-              zIndex: 11,
-              position: "absolute",
-            }}
-            snowflakeCount={isLargerThan1280 ? 50 : 25}
-          />
           <MainLayout showShadow={showShadow}>
+            <Snowfall
+              style={{
+                height: "100%",
+                width: "100vw",
+                zIndex: 11,
+                position: "absolute",
+              }}
+              snowflakeCount={isLargerThan1280 ? 50 : 25}
+            />
             <Box height="100vh">
               <Home />
             </Box>
