@@ -5,7 +5,8 @@ const colors = {
     darkBackground: '#020C1B',
     hoverDark: '#133040',
     lightText: '#CCD6F6',
-    darkText: "#8892B0"
+    darkText: "#8892B0",
+    divider: '#233554',
 }
 
 export default colors;

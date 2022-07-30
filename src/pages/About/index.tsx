@@ -1,111 +1,134 @@
-import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  chakra,
+  Divider,
+  Flex,
+  HStack,
+  Icon,
+  Image,
+  Link,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import ChakraBox from "../../components/ChakraBox";
+import SkillItem from "../../components/SkillItem";
 import colors from "../../styles/colors";
 
 const About = () => {
   return (
-    <Box height="100vh">
-      <Flex
-        height={"100%"}
-        justify={"center"}
-        direction={"column"}
-        marginInline={{ base: 10, md: 75, lg: 100, xl: 200 }}
+    <Box height={"100%"} width={"100%"} paddingBlock={20}>
+      <ChakraBox
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        // @ts-ignore no problem in operation, although type error appears.
+        transition={{
+          duration: 0.5,
+          delay: 0.5,
+        }}
       >
-        <ChakraBox
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          // @ts-ignore no problem in operation, although type error appears.
-          transition={{
-            duration: 0.5,
-            delay: 0.5,
-          }}
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          alignItems={"center"}
+          justifyContent={"center"}
+          width={"100%"}
+          height="100%"
         >
-          <Text
-            mb={3}
-            fontFamily={"Space Mono"}
-            fontSize={16}
-            color={colors.primary}
-          >
-            Hi, my name is
-          </Text>
+          <Box width={{ base: "90%", md: "60%", lg: "55%", xl: "40%" }}>
+            <VStack alignItems={"flex-start"}>
+              <HStack width="100%" marginBottom={10}>
+                <Text
+                  fontFamily={"Space Mono"}
+                  fontSize={16}
+                  color={colors.primary}
+                >
+                  01.
+                </Text>
+                <Text fontSize={24} fontWeight="bold" color={colors.lightText}>
+                  About
+                </Text>
+                <Text fontSize={24} fontWeight="bold" color={colors.lightText}>
+                  Me
+                </Text>
+                <Box width={"100%"} paddingInline={2}>
+                  <Divider borderColor={colors.divider} />
+                </Box>
+              </HStack>
+              <VStack alignItems={"flex-start"}>
+                <Text mb={2} fontSize={17} color={colors.darkText}>
+                  Hello! My name is Jeromy and I enjoy creating things that live
+                  on the internet. My interest in web development started back
+                  in 2018 when I decided to try to create an event website for
+                  an orchestra performance.
+                </Text>
+                <Box>
+                  <Text
+                    as={"span"}
+                    mb={2}
+                    fontSize={17}
+                    color={colors.darkText}
+                  >
+                    Fast-forward to today, and I’ve had the privilege of working
+                    at a health-tech. My main focus these days is building
+                    accessible, inclusive products and digital experiences at
+                  </Text>{" "}
+                  <Link
+                    as={"span"}
+                    target="_blank"
+                    sx={{
+                      textDecoration: "none",
+                      transform: "scaleX(0)",
+                    }}
+                    _hover={{
+                      textDecoration: "underline",
+                      transition: "transform 0.25s ease-out",
+                      transformOrigin: "bottom left",
+                      transform: "scaleX(1)",
+                    }}
+                    mb={2}
+                    color={colors.primary}
+                    letterSpacing={1}
+                    href="https://www.naluri.life/"
+                  >
+                    Naluri
+                  </Link>
+                  <Text
+                    as={"span"}
+                    mb={2}
+                    fontSize={17}
+                    color={colors.darkText}
+                  >
+                    .
+                  </Text>
+                </Box>
+                <Text mb={2} fontSize={17} color={colors.darkText}>
+                  Here are a few technologies I've been working with recently:
+                </Text>
+                <HStack paddingTop={5} spacing={"16"}>
+                  <VStack alignItems={"flex-start"}>
+                    <SkillItem skill="Typescript" />
+                    <SkillItem skill="Web3" />
+                    <SkillItem skill="Solidity" />
+                  </VStack>
+                  <VStack alignItems={"flex-start"}>
+                    <SkillItem skill="MongoDB" />
+                    <SkillItem skill="Postgre" />
+                    <SkillItem skill="ApolloGraphQL" />
+                  </VStack>
+                </HStack>
+              </VStack>
+            </VStack>
+          </Box>
 
-          <Text
-            letterSpacing={2}
-            fontWeight={"bold"}
-            fontSize={{ base: "24px", md: "48px", lg: "60px", xl: "65px" }}
-            color={colors.lightText}
-          >
-            Jeromy Kho.
-          </Text>
-
-          <Text
-            letterSpacing={2}
-            fontWeight={"bold"}
-            fontSize={{ base: "24px", md: "48px", lg: "60px", xl: "65px" }}
-            color={colors.darkText}
-          >
-            {`I create. You consume.`}
-          </Text>
-          <Text
-            letterSpacing={1}
-            mt={5}
-            mr={{ base: 0, md: 150, lg: 300, xl: 450 }}
-            fontSize={{ base: "13px", md: "15px", lg: "16px" }}
-            color={colors.darkText}
-          >
-            {`
-          I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences.
-          Currently, I'm focused on building my knowledge and experience on cloud infra to eventually be a devops at
-          `}
-            <Link
-              target="_blank"
-              sx={{
-                textDecoration: "none",
-                transform: "scaleX(0)",
-              }}
-              _hover={{
-                textDecoration: "underline",
-                transition: "transform 0.25s ease-out",
-                transformOrigin: "bottom left",
-                transform: "scaleX(1)",
-              }}
-              color={colors.primary}
-              letterSpacing={1}
-              href="https://www.naluri.life/"
-            >
-              Naluri
-            </Link>
-            {"."}
-          </Text>
-          <Button
-            fontFamily={"Space Mono"}
-            colorScheme={"none"}
-            fontSize={{ base: 11, md: 13, xl: 15 }}
-            mt={10}
-            p={7}
-            alignSelf="flex-start"
-            fontWeight={500}
-            color={colors.primary}
-            borderColor={colors.primary}
-            borderWidth={2}
-            bg={colors.background}
-            _hover={{
-              bg: colors.hoverDark,
-            }}
-          >
-            <Link
-              target="_blank"
-              style={{
-                textDecoration: "none",
-              }}
-              href="https://github.com/kasugasorata98/portfolio"
-            >
-              {`This Portfolio's Github Repository!`}
-            </Link>
-          </Button>
-        </ChakraBox>
-      </Flex>
+          <Image
+            paddingBlock={{ base: 5, md: 0 }}
+            width={{ base: 250, md: 200, lg: 250 }}
+            src="https://avatars.githubusercontent.com/u/50161346?v=4"
+          />
+        </Stack>
+      </ChakraBox>
     </Box>
   );
 };
