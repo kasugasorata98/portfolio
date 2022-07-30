@@ -57,7 +57,7 @@ const Home = () => {
                 fontSize={{ base: "24px", md: "48px", lg: "60px", xl: "65px" }}
                 color={colors.darkText}
               >
-                {`I create. You consume.`}
+                {`I create magic.`}
               </Text>
               <Text
                 letterSpacing={1}

@@ -12,7 +12,6 @@ import {
   Text,
   Link,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import { NavItem } from "../../entities/types";
 import colors from "../../styles/colors";
 

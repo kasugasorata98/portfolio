@@ -74,8 +74,8 @@ const About = () => {
                     color={colors.darkText}
                   >
                     {`Fast-forward to today, and I’ve had the privilege of working
-                at a health-tech. My main focus these days is building
-                accessible, inclusive products and digital experiences at`}
+                      at an eCommerce solutions provider, a broadcaster, and in a health-tech company. My main focus these days is building
+                      accessible, inclusive products and digital experiences at`}
                   </Text>{" "}
                   <Link
                     as={"span"}
@@ -111,7 +111,7 @@ const About = () => {
                   </VStack>
                   <VStack alignItems={"flex-start"}>
                     <SkillItem skill="MongoDB" />
-                    <SkillItem skill="Postgre" />
+                    <SkillItem skill="Postgres" />
                     <SkillItem skill="ApolloGraphQL" />
                   </VStack>
                 </HStack>
