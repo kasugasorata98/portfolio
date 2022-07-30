@@ -135,6 +135,10 @@ const About = () => {
                   right: 6,
                   bottom: 6,
                 }}
+                _pressed={{
+                  right: 6,
+                  bottom: 6,
+                }}
                 right={4}
                 bottom={4}
                 alt="me"
