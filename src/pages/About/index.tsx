@@ -58,10 +58,10 @@ const About = () => {
               </HStack>
               <VStack alignItems={"flex-start"}>
                 <Text mb={2} fontSize={17} color={colors.darkText}>
-                  Hello! My name is Jeromy and I enjoy creating things that live
+                  {`Hello! My name is Jeromy and I enjoy creating things that live
                   on the internet. My interest in web development started back
                   in 2018 when I decided to try to create an event website for
-                  an orchestra performance.
+                  an orchestra performance.`}
                 </Text>
                 <Box>
                   <Text
@@ -70,9 +70,9 @@ const About = () => {
                     fontSize={17}
                     color={colors.darkText}
                   >
-                    Fast-forward to today, and I’ve had the privilege of working
-                    at a health-tech. My main focus these days is building
-                    accessible, inclusive products and digital experiences at
+                    {`Fast-forward to today, and I’ve had the privilege of working
+                at a health-tech. My main focus these days is building
+                accessible, inclusive products and digital experiences at`}
                   </Text>{" "}
                   <Link
                     as={"span"}
