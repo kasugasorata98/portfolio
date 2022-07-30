@@ -72,15 +72,9 @@ const Home = () => {
           `}
                 <Link
                   target="_blank"
-                  sx={{
-                    textDecoration: "none",
-                    transform: "scaleX(0)",
-                  }}
+                  textDecoration="none"
                   _hover={{
                     textDecoration: "underline",
-                    transition: "transform 0.25s ease-out",
-                    transformOrigin: "bottom left",
-                    transform: "scaleX(1)",
                   }}
                   color={colors.primary}
                   letterSpacing={1}

@@ -199,7 +199,6 @@ const Header: React.FC<{
             <Box
               _hover={{
                 cursor: "pointer",
-                transition: "0.5s",
               }}
               onClick={() => {
                 setMuted(!isMuted);

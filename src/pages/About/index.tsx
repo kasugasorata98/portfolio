@@ -36,7 +36,10 @@ const About = () => {
           width={"100%"}
           height="100%"
         >
-          <Box width={{ base: "90%", md: "60%", lg: "55%", xl: "40%" }}>
+          <Box
+            marginRight={{ base: 0, md: 10 }}
+            width={{ base: "90%", md: "60%", lg: "55%", xl: "40%" }}
+          >
             <VStack alignItems={"flex-start"}>
               <HStack width="100%" marginBottom={10}>
                 <Text
@@ -77,15 +80,9 @@ const About = () => {
                   <Link
                     as={"span"}
                     target="_blank"
-                    sx={{
-                      textDecoration: "none",
-                      transform: "scaleX(0)",
-                    }}
+                    textDecoration="none"
                     _hover={{
                       textDecoration: "underline",
-                      transition: "transform 0.25s ease-out",
-                      transformOrigin: "bottom left",
-                      transform: "scaleX(1)",
                     }}
                     mb={2}
                     color={colors.primary}
@@ -122,12 +119,30 @@ const About = () => {
             </VStack>
           </Box>
 
-          <Image
-            alt="me"
-            paddingBlock={{ base: 5, md: 0 }}
-            width={{ base: 250, md: 200, lg: 250 }}
-            src="https://avatars.githubusercontent.com/u/50161346?v=4"
-          />
+          <Box paddingTop={10}>
+            <Box
+              width={{ base: 250, md: 200, lg: 250 }}
+              height={{ base: 250, md: 200, lg: 250 }}
+              borderWidth={2}
+              borderColor={colors.primary}
+              borderRadius={5}
+            >
+              <Image
+                borderRadius={5}
+                position={"relative"}
+                transition={"0.5s"}
+                _hover={{
+                  right: 6,
+                  bottom: 6,
+                }}
+                right={4}
+                bottom={4}
+                alt="me"
+                width={{ base: 250, md: 200, lg: 250 }}
+                src="https://avatars.githubusercontent.com/u/50161346?v=4"
+              />
+            </Box>
+          </Box>
         </Stack>
       </ChakraBox>
     </Box>

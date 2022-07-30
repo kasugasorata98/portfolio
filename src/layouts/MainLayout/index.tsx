@@ -81,11 +81,10 @@ const MainLayout: React.FC<{
                   {socialButtons.map((social, index) => {
                     return (
                       <Link
+                        transition="0.5s"
                         key={index}
                         _hover={{
                           width: 20,
-                          transition: "0.5s",
-                          transitionTimingFunction: "ease-in-out",
                           cursor: "pointer",
                         }}
                         width={"12"}
@@ -142,11 +141,11 @@ const MainLayout: React.FC<{
                       textDecoration: "none",
                       transform: "rotate(90deg)",
                     }}
+                    transition="0.5s"
                     _hover={{
                       color: colors.darkPrimary,
                       marginBottom: 24,
                       fontSize: "13",
-                      transition: "0.5s",
                       cursor: "pointer",
                     }}
                     color={colors.lightText}
