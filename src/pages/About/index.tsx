@@ -123,6 +123,7 @@ const About = () => {
           </Box>
 
           <Image
+            alt="me"
             paddingBlock={{ base: 5, md: 0 }}
             width={{ base: 250, md: 200, lg: 250 }}
             src="https://avatars.githubusercontent.com/u/50161346?v=4"
