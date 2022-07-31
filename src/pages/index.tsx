@@ -1,6 +1,5 @@
-import { Box, BoxProps, useMediaQuery, VStack } from "@chakra-ui/react";
-import Head from "next/head";
-import { LegacyRef, Ref, useEffect, useRef, useState } from "react";
+import { Box, useMediaQuery } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 import Scrollbar from "../components/Scrollbar";
 import { PageReference, ScrollFrame } from "../entities/types";
 import MainLayout from "../layouts/MainLayout";
