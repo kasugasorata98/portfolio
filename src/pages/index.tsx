@@ -4,9 +4,9 @@ import Scrollbar from "../components/Scrollbar";
 import { PageReference, ScrollFrame } from "../entities/types";
 import MainLayout from "../layouts/MainLayout";
 import Snowfall from "../lib/react-snowfall/src";
-import About from "./about2";
-import Home from "./home2";
-import Loading from "./loading2";
+import About from "./about";
+import Home from "./home";
+import Loading from "./loading";
 import React from "react";
 import Scrollbars from "react-custom-scrollbars-2";
 
