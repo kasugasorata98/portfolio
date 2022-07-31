@@ -1,13 +1,4 @@
-import {
-  Box,
-  Flex,
-  HStack,
-  VStack,
-  Divider,
-  useMediaQuery,
-  Text,
-  Link,
-} from "@chakra-ui/react";
+import { Box, Flex, HStack, VStack, Divider, Link } from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
 import Snowfall from "../../lib/react-snowfall/lib/Snowfall";
 import ChakraBox from "../../components/ChakraBox";
