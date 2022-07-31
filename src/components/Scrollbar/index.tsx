@@ -1,15 +1,17 @@
-import React, { ReactNode } from "react";
-import Scrollbars from "react-custom-scrollbars-2";
+import React, { LegacyRef, ReactNode, useRef } from "react";
+import Scrollbars, { ScrollbarProps } from "react-custom-scrollbars-2";
 import { ScrollFrame } from "../../entities/types";
 import colors from "../../styles/colors";
 
 const Scrollbar: React.FC<{
   children?: ReactNode;
   onScrollFrame?: Function;
-}> = ({ children, onScrollFrame }) => {
+  scrollRef?: LegacyRef<Scrollbars> | undefined;
+}> = ({ children, onScrollFrame, scrollRef }) => {
   return (
     <Scrollbars
       universal
+      ref={scrollRef}
       onScrollFrame={(value: ScrollFrame) => {
         onScrollFrame && onScrollFrame(value);
       }}

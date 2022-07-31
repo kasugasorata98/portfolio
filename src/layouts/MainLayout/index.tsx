@@ -12,8 +12,7 @@ import React, { ReactNode, useState } from "react";
 import Snowfall from "../../lib/react-snowfall/lib/Snowfall";
 import ChakraBox from "../../components/ChakraBox";
 import Header from "../../components/Header";
-import Scrollbar from "../../components/Scrollbar";
-import { ScrollFrame } from "../../entities/types";
+import { PageReference, ScrollFrame } from "../../entities/types";
 import colors from "../../styles/colors";
 import Lottie from "lottie-react";
 import WhatsAppAnimation from "../../lotties/whatsapp.json";
@@ -21,10 +20,23 @@ import FacebookAnimation from "../../lotties/facebook.json";
 import LinkedinAnimation from "../../lotties/linkedin.json";
 import GithubAnimation from "../../lotties/github.json";
 import InstagramAnimation from "../../lotties/instagram.json";
+import Scrollbars from "react-custom-scrollbars-2";
+import { Ref } from "react";
+
 const MainLayout: React.FC<{
   children?: ReactNode;
   showShadow?: boolean;
-}> = ({ children, showShadow }) => {
+  showHeader?: boolean;
+  scrollRef: React.RefObject<Scrollbars>;
+  pageReference: PageReference;
+}> = ({
+  children,
+  showShadow,
+  showHeader,
+  scrollRef,
+  pageReference,
+  ...props
+}) => {
   const socialButtons: Array<{
     animation: any;
     href: string;
@@ -55,7 +67,12 @@ const MainLayout: React.FC<{
     <Flex bg={colors.background}>
       <VStack position={"relative"}>
         <Box position={"fixed"} zIndex={10} alignSelf={"stretch"}>
-          <Header showShadow={showShadow} />
+          <Header
+            scrollRef={scrollRef}
+            showHeader={showHeader}
+            showShadow={showShadow}
+            pageReference={pageReference}
+          />
         </Box>
         <HStack>
           <Box width={{ base: 0, md: 100 }}>
@@ -106,7 +123,14 @@ const MainLayout: React.FC<{
               </ChakraBox>
             </VStack>
           </Box>
-          <Box>{children}</Box>
+          <Box>
+            {React.Children.map(children, (child) => {
+              // if (React.isValidElement(child)) {
+              //   return React.cloneElement(child, { scrollRef });
+              // }
+              return child;
+            })}
+          </Box>
           <Box width={{ base: 0, md: 100 }}>
             <VStack
               position={{ base: "unset", md: "fixed" }}

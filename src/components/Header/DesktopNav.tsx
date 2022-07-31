@@ -12,12 +12,15 @@ import {
   Text,
   Link,
 } from "@chakra-ui/react";
-import { NavItem } from "../../entities/types";
+import Scrollbars from "react-custom-scrollbars-2";
+import { NavItem, PageReference } from "../../entities/types";
 import colors from "../../styles/colors";
 
 const DesktopNav: React.FC<{
   NAV_ITEMS: Array<NavItem>;
-}> = ({ NAV_ITEMS }) => {
+  pageReference: PageReference;
+  scrollTo: Function;
+}> = ({ NAV_ITEMS, pageReference, scrollTo }) => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
@@ -28,6 +31,9 @@ const DesktopNav: React.FC<{
             <PopoverTrigger>
               <Link
                 href={navItem.href ?? "#"}
+                onClick={() => {
+                  scrollTo(navItem.key ?? "");
+                }}
                 fontSize={13}
                 fontWeight={400}
                 color={"#CCD6F6"}

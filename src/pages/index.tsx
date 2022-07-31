@@ -1,14 +1,15 @@
-import { Box, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Box, BoxProps, useMediaQuery, VStack } from "@chakra-ui/react";
 import Head from "next/head";
-import { useState } from "react";
+import { LegacyRef, Ref, useEffect, useRef, useState } from "react";
 import Scrollbar from "../components/Scrollbar";
-import { ScrollFrame } from "../entities/types";
+import { PageReference, ScrollFrame } from "../entities/types";
 import MainLayout from "../layouts/MainLayout";
 import Snowfall from "../lib/react-snowfall/src";
 import About from "./About";
 import Home from "./Home";
 import Loading from "./Loading";
 import React from "react";
+import Scrollbars from "react-custom-scrollbars-2";
 
 export default function Index() {
   const [_, setScrollFrame] = useState<ScrollFrame>({
@@ -22,9 +23,14 @@ export default function Index() {
     top: 0,
   });
   const [showShadow, setShowShadow] = useState<boolean>(false);
-
+  const [showHeader, setShowHeader] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)");
+  const scrollRef = useRef<Scrollbars>(null);
+  const pageReference: PageReference = {
+    home: useRef<HTMLDivElement>(null),
+    about: useRef<HTMLDivElement>(null),
+  };
 
   return (
     <>
@@ -37,14 +43,23 @@ export default function Index() {
         />
       ) : (
         <Scrollbar
+          scrollRef={scrollRef}
           onScrollFrame={(value: ScrollFrame) => {
-            setScrollFrame(() => {
+            setScrollFrame((prevScrollFrame) => {
               setShowShadow(value.scrollTop > 0);
+              if (value.scrollTop > prevScrollFrame.scrollTop)
+                setShowHeader(false);
+              else setShowHeader(true);
               return value;
             });
           }}
         >
-          <MainLayout showShadow={showShadow}>
+          <MainLayout
+            scrollRef={scrollRef}
+            showHeader={showHeader}
+            showShadow={showShadow}
+            pageReference={pageReference}
+          >
             <Snowfall
               style={{
                 height: "100%",
@@ -54,11 +69,14 @@ export default function Index() {
               }}
               snowflakeCount={isLargerThan1280 ? 50 : 25}
             />
-
-            <Box height="100vh">
+            <Box ref={pageReference.home} height="100vh">
               <Home />
             </Box>
-
+            <Box ref={pageReference.about}>
+              <About />
+            </Box>
+            <About />
+            <About />
             <About />
           </MainLayout>
         </Scrollbar>

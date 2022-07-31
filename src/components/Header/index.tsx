@@ -18,18 +18,20 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import colors from "../../styles/colors";
 import { useRouter } from "next/router";
-import { NavItem } from "../../entities/types";
+import { NavItem, PageReference, ScrollFrame } from "../../entities/types";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
-import { useEffect, useState } from "react";
+import { Ref, useEffect, useState } from "react";
 import ChakraBox from "../ChakraBox";
 import ReactPlayer from "react-player";
 import MusicAnimation from "../../lotties/music.json";
 import Lottie from "lottie-react";
+import Scrollbars from "react-custom-scrollbars-2";
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "About",
-    href: "#",
+    href: "#about",
+    key: "about",
   },
   {
     label: "Projects",
@@ -94,7 +96,10 @@ const NAV_ITEMS: Array<NavItem> = [
 
 const Header: React.FC<{
   showShadow?: boolean;
-}> = ({ showShadow }) => {
+  showHeader?: boolean;
+  scrollRef: React.RefObject<Scrollbars>;
+  pageReference: PageReference;
+}> = ({ showShadow, showHeader, pageReference, scrollRef }) => {
   const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
 
@@ -105,6 +110,10 @@ const Header: React.FC<{
       setHasWindow(true);
     }
   }, []);
+
+  function scrollTo(key: string) {
+    scrollRef.current?.scrollTop(pageReference[key].current?.offsetTop || 0);
+  }
 
   return (
     <Box>
@@ -134,6 +143,8 @@ const Header: React.FC<{
           paddingBlock={{ base: 5, md: 5 }}
           paddingInline={{ base: 5, md: 5 }}
           backdropFilter={"blur(10px) saturate(100%)"}
+          opacity={showHeader ? 1 : 0}
+          transition={"0.5s"}
         >
           <HStack
             flexGrow={1}
@@ -141,6 +152,7 @@ const Header: React.FC<{
             justify={{ base: "normal", md: "space-between" }}
           >
             <Box
+              onClick={() => scrollTo("home")}
               boxSize="50px"
               p={2}
               alignSelf="center"
@@ -153,7 +165,7 @@ const Header: React.FC<{
             >
               <Image
                 onClick={() => {
-                  router.push("/");
+                  // router.push("/");
                 }}
                 alignSelf={"center"}
                 src="assets/images/logo.png"
@@ -162,7 +174,11 @@ const Header: React.FC<{
             </Box>
 
             <Flex display={{ base: "none", md: "none", lg: "flex" }} ml={5}>
-              <DesktopNav NAV_ITEMS={NAV_ITEMS} />
+              <DesktopNav
+                NAV_ITEMS={NAV_ITEMS}
+                pageReference={pageReference}
+                scrollTo={scrollTo}
+              />
             </Flex>
           </HStack>
           <Box>
