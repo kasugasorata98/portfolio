@@ -18,9 +18,8 @@ import colors from "../../styles/colors";
 
 const DesktopNav: React.FC<{
   NAV_ITEMS: Array<NavItem>;
-  pageReference: PageReference;
   scrollTo: Function;
-}> = ({ NAV_ITEMS, pageReference, scrollTo }) => {
+}> = ({ NAV_ITEMS, scrollTo }) => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (

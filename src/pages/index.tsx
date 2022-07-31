@@ -5,9 +5,9 @@ import Scrollbar from "../components/Scrollbar";
 import { PageReference, ScrollFrame } from "../entities/types";
 import MainLayout from "../layouts/MainLayout";
 import Snowfall from "../lib/react-snowfall/src";
-import About from "./About";
-import Home from "./Home";
-import Loading from "./Loading";
+import About from "./about";
+import Home from "./home";
+import Loading from "./loading";
 import React from "react";
 import Scrollbars from "react-custom-scrollbars-2";
 
@@ -72,10 +72,11 @@ export default function Index() {
             <Box ref={pageReference.home} height="100vh">
               <Home />
             </Box>
+
+            <About />
             <Box ref={pageReference.about}>
               <About />
             </Box>
-            <About />
             <About />
             <About />
           </MainLayout>

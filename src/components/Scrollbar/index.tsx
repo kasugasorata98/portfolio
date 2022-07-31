@@ -1,5 +1,5 @@
-import React, { LegacyRef, ReactNode, useRef } from "react";
-import Scrollbars, { ScrollbarProps } from "react-custom-scrollbars-2";
+import React, { LegacyRef, ReactNode } from "react";
+import Scrollbars from "react-custom-scrollbars-2";
 import { ScrollFrame } from "../../entities/types";
 import colors from "../../styles/colors";
 

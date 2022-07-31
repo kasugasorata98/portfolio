@@ -1,11 +1,7 @@
 import {
   Box,
-  Button,
-  chakra,
   Divider,
-  Flex,
   HStack,
-  Icon,
   Image,
   Link,
   Stack,

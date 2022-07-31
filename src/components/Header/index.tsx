@@ -174,11 +174,7 @@ const Header: React.FC<{
             </Box>
 
             <Flex display={{ base: "none", md: "none", lg: "flex" }} ml={5}>
-              <DesktopNav
-                NAV_ITEMS={NAV_ITEMS}
-                pageReference={pageReference}
-                scrollTo={scrollTo}
-              />
+              <DesktopNav NAV_ITEMS={NAV_ITEMS} scrollTo={scrollTo} />
             </Flex>
           </HStack>
           <Box>
