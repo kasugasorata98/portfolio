@@ -22,4 +22,5 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: mv out portfolio # rename out to portfolio
+      - run: rm -rf /var/www/html/portfolio # remove directory that isnt empty
       - run: mv portfolio /var/www/html # move portfolio folder to another directory
