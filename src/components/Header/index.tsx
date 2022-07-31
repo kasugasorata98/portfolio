@@ -226,33 +226,6 @@ const Header: React.FC<{
               />
             </Box>
           </Tooltip>
-
-          {/* <HStack
-            borderWidth={2}
-            borderColor={colors.primary}
-            paddingBlock={2}
-            paddingInline={4}
-            borderRadius={6}
-          >
-            <Text
-              fontFamily={"Space Mono"}
-              fontSize={13}
-              color={colors.primary}
-            >
-              Music
-            </Text>
-
-            <Switch
-              disabled={!hasWindow}
-              colorScheme={"teal"}
-              size={"md"}
-              isChecked={!isMuted}
-              onChange={() => {
-                console.log("clicked");
-                ;
-              }}
-            />
-          </HStack> */}
           <IconButton
             display={{ base: "flex", md: "flex", lg: "none" }}
             colorScheme={"none"}
@@ -273,7 +246,11 @@ const Header: React.FC<{
         </HStack>
 
         <Collapse in={isOpen} animateOpacity>
-          <MobileNav NAV_ITEMS={NAV_ITEMS} />
+          <MobileNav
+            toggleNav={onToggle}
+            NAV_ITEMS={NAV_ITEMS}
+            scrollTo={scrollTo}
+          />
         </Collapse>
       </ChakraBox>
     </Box>

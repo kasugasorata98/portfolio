@@ -46,7 +46,8 @@ export default function Index() {
           onScrollFrame={(value: ScrollFrame) => {
             setScrollFrame((prevScrollFrame) => {
               setShowShadow(value.scrollTop > 0);
-              if (value.scrollTop > prevScrollFrame.scrollTop)
+              if (value.scrollTop === 0) setShowHeader(true);
+              else if (value.scrollTop > prevScrollFrame.scrollTop)
                 setShowHeader(false);
               else setShowHeader(true);
               return value;

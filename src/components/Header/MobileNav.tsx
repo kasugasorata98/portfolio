@@ -13,7 +13,9 @@ import colors from "../../styles/colors";
 
 const MobileNav: React.FC<{
   NAV_ITEMS: Array<NavItem>;
-}> = ({ NAV_ITEMS }) => {
+  scrollTo: Function;
+  toggleNav: Function;
+}> = ({ NAV_ITEMS, scrollTo, toggleNav }) => {
   return (
     <Stack
       borderRadius={10}
@@ -24,21 +26,34 @@ const MobileNav: React.FC<{
       display={{ lg: "none" }}
     >
       {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <MobileNavItem
+          key={navItem.key}
+          scrollTo={scrollTo}
+          NAV_ITEM={navItem}
+          toggleNav={toggleNav}
+        />
       ))}
     </Stack>
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem: React.FC<{
+  NAV_ITEM: NavItem;
+  scrollTo: Function;
+  toggleNav: Function;
+}> = ({ NAV_ITEM, scrollTo, toggleNav }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4} onClick={NAV_ITEM.children && onToggle}>
       <Flex
         py={2}
         as={Link}
-        href={href ?? "#"}
+        href={NAV_ITEM.href ?? "#"}
+        onClick={() => {
+          scrollTo(NAV_ITEM.key ?? "");
+          toggleNav();
+        }}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -46,9 +61,9 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         }}
       >
         <Text fontWeight={600} color={colors.lightText}>
-          {label}
+          {NAV_ITEM.label}
         </Text>
-        {children && (
+        {NAV_ITEM.children && (
           <Icon
             color={"white"}
             as={ChevronDownIcon}
@@ -69,8 +84,8 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           color={colors.lightText}
           align={"start"}
         >
-          {children &&
-            children.map((child) => (
+          {NAV_ITEM.children &&
+            NAV_ITEM.children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
                 {child.label}
               </Link>
