@@ -152,7 +152,10 @@ const Header: React.FC<{
             justify={{ base: "normal", md: "space-between" }}
           >
             <Box
-              onClick={() => scrollTo("home")}
+              onClick={() => {
+                router.push("/");
+                scrollTo("home");
+              }}
               boxSize="50px"
               p={2}
               alignSelf="center"
@@ -164,9 +167,6 @@ const Header: React.FC<{
               }}
             >
               <Image
-                onClick={() => {
-                  // router.push("/");
-                }}
                 alignSelf={"center"}
                 src="assets/images/logo.png"
                 alt="J"
