@@ -22,4 +22,5 @@ jobs:
       - run: npm run stop
       - run: npm ci
       - run: npm run build
-      - run: mv out portfolio /var/www/
+      - run: mv out portfolio
+      - run: mv portfolio /var/www/
