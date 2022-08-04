@@ -1,5 +1,5 @@
 import { Box, useMediaQuery } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Scrollbar from "../components/Scrollbar";
 import { PageReference, ScrollFrame } from "../entities/types";
 import MainLayout from "../layouts/MainLayout";
@@ -30,7 +30,10 @@ export default function Index() {
     home: useRef<HTMLDivElement>(null),
     about: useRef<HTMLDivElement>(null),
   };
-
+  const [height, setHeight] = useState<string | number>("100vh");
+  useEffect(() => {
+    setHeight(window.innerHeight);
+  }, []);
   return (
     <>
       {isLoading ? (
@@ -69,7 +72,7 @@ export default function Index() {
               }}
               snowflakeCount={isLargerThan1280 ? 50 : 25}
             />
-            <Box ref={pageReference.home} height="100vh">
+            <Box ref={pageReference.home} height={height}>
               <Home />
             </Box>
 
