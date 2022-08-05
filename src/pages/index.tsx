@@ -9,6 +9,7 @@ import Home from "./home";
 import Loading from "./loading";
 import React from "react";
 import Scrollbars from "react-custom-scrollbars-2";
+import Util from "../util";
 
 export default function Index() {
   const [_, setScrollFrame] = useState<ScrollFrame>({
@@ -30,10 +31,6 @@ export default function Index() {
     home: useRef<HTMLDivElement>(null),
     about: useRef<HTMLDivElement>(null),
   };
-  const [height, setHeight] = useState<string | number>("100vh");
-  useEffect(() => {
-    setHeight(window.innerHeight);
-  }, []);
   return (
     <>
       {isLoading ? (
@@ -72,7 +69,7 @@ export default function Index() {
               }}
               snowflakeCount={isLargerThan1280 ? 50 : 25}
             />
-            <Box ref={pageReference.home} height={height}>
+            <Box ref={pageReference.home} height={Util.useHeight()}>
               <Home />
             </Box>
 
