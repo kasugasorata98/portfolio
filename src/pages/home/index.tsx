@@ -2,14 +2,11 @@ import { Box, Button, Flex, Link, Stack, Text, VStack } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import ChakraBox from "../../components/ChakraBox";
 import colors from "../../styles/colors";
+import Util from "../../util";
 
 const Home = () => {
-  const [height, setHeight] = useState<string | number>("100vh");
-  useEffect(() => {
-    setHeight(window.innerHeight);
-  }, []);
   return (
-    <Box height={height} width={"100%"}>
+    <Box height={Util.useHeight()} width={"100%"}>
       <ChakraBox
         height="100%"
         initial={{ opacity: 0, x: 100 }}

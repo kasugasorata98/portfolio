@@ -9,22 +9,23 @@ const Util = {
     isClientSide: () => typeof window !== "undefined",
     useHeight: () => {
         const [height, setHeight] = useState<string | number>('100vh');
-        const handleResize = () => setHeight(window.innerHeight);
+
         useEffect(() => {
+            const handleResize = () => setHeight(window.innerHeight);
             setHeight(window.innerHeight);
             window.addEventListener("resize", handleResize);
             return () => window.removeEventListener("resize", handleResize);
-        }, [handleResize]);
+        }, []);
         return height;
     },
     useWidth: () => {
         const [width, setWidth] = useState<string | number>('100vw');
-        const handleResize = () => setWidth(window.innerWidth);
         useEffect(() => {
+            const handleResize = () => setWidth(window.innerWidth);
             setWidth(window.innerWidth);
             window.addEventListener("resize", handleResize);
             return () => window.removeEventListener("resize", handleResize);
-        }, [handleResize]);
+        }, []);
         return width;
     }
 }

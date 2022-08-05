@@ -69,7 +69,7 @@ export default function Index() {
               }}
               snowflakeCount={isLargerThan1280 ? 50 : 25}
             />
-            <Box ref={pageReference.home} height={Util.useHeight()}>
+            <Box ref={pageReference.home}>
               <Home />
             </Box>
 
