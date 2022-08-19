@@ -72,13 +72,9 @@ export default function Index() {
             <Box ref={pageReference.home}>
               <Home />
             </Box>
-
-            <About />
             <Box ref={pageReference.about}>
               <About />
             </Box>
-            <About />
-            <About />
           </MainLayout>
         </Scrollbar>
       )}
