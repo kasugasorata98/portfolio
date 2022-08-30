@@ -117,7 +117,7 @@ const EmploymentHistory = () => {
                 color={colors.lightText}
                 whiteSpace={"nowrap"}
               >
-                Where I've Worked
+                {`Where I've Worked`}
               </Text>
               <Box width={"100%"} paddingInline={2}>
                 <Divider borderColor={colors.divider} />
