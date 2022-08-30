@@ -54,7 +54,10 @@ const Home = () => {
                 fontSize={{ base: "24px", md: "48px", lg: "60px", xl: "65px" }}
                 color={colors.lightText}
               >
-                <TypeAnimation sequence={[2000, "Jeromy Kho."]} />
+                <TypeAnimation
+                  cursor={false}
+                  sequence={[2000, "Jeromy Kho."]}
+                />
               </Text>
 
               <Text
