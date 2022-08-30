@@ -10,6 +10,7 @@ import Loading from "./loading";
 import React from "react";
 import Scrollbars from "react-custom-scrollbars-2";
 import Util from "../util";
+import EmploymentHistory from "./employment-history";
 
 export default function Index() {
   const [_, setScrollFrame] = useState<ScrollFrame>({
@@ -30,6 +31,7 @@ export default function Index() {
   const pageReference: PageReference = {
     home: useRef<HTMLDivElement>(null),
     about: useRef<HTMLDivElement>(null),
+    work: useRef<HTMLDivElement>(null),
   };
   return (
     <>
@@ -75,6 +77,10 @@ export default function Index() {
             <Box ref={pageReference.about}>
               <About />
             </Box>
+            <Box ref={pageReference.work}>
+              <EmploymentHistory />
+            </Box>
+            <Box height={"100vh"}>{/* Leave this empty for now */}</Box>
           </MainLayout>
         </Scrollbar>
       )}

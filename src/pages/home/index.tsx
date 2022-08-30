@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Link, Stack, Text, VStack } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import { TypeAnimation } from "react-type-animation";
 import ChakraBox from "../../components/ChakraBox";
 import colors from "../../styles/colors";
 import Util from "../../util";
@@ -41,7 +42,10 @@ const Home = () => {
                 fontSize={16}
                 color={colors.primary}
               >
-                Hi, my name is
+                <TypeAnimation
+                  cursor={false}
+                  sequence={[1000, "Hi, my name is"]}
+                />
               </Text>
 
               <Text
@@ -50,7 +54,7 @@ const Home = () => {
                 fontSize={{ base: "24px", md: "48px", lg: "60px", xl: "65px" }}
                 color={colors.lightText}
               >
-                Jeromy Kho.
+                <TypeAnimation sequence={[2000, "Jeromy Kho."]} />
               </Text>
 
               <Text

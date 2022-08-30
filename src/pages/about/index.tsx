@@ -14,7 +14,7 @@ import colors from "../../styles/colors";
 
 const About = () => {
   return (
-    <Box height={"100%"} width={"100%"} paddingBlock={20}>
+    <Box paddingBlock={20}>
       <ChakraBox
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,8 +29,6 @@ const About = () => {
           direction={{ base: "column", md: "row" }}
           alignItems={"center"}
           justifyContent={"center"}
-          width={"100%"}
-          height="100%"
         >
           <Box
             marginRight={{ base: 0, md: 10 }}
@@ -45,11 +43,13 @@ const About = () => {
                 >
                   01.
                 </Text>
-                <Text fontSize={24} fontWeight="bold" color={colors.lightText}>
-                  About
-                </Text>
-                <Text fontSize={24} fontWeight="bold" color={colors.lightText}>
-                  Me
+                <Text
+                  whiteSpace={"nowrap"}
+                  fontSize={24}
+                  fontWeight="bold"
+                  color={colors.lightText}
+                >
+                  About Me
                 </Text>
                 <Box width={"100%"} paddingInline={2}>
                   <Divider borderColor={colors.divider} />
@@ -137,9 +137,9 @@ const About = () => {
                 }}
                 right={4}
                 bottom={4}
-                alt="me"
+                alt="myself"
                 width={{ base: 250, md: 200, lg: 250 }}
-                src="https://avatars.githubusercontent.com/u/50161346?v=4"
+                src="https://avatars.githubusercontent.com/u/50161346?v=5"
               />
             </Box>
           </Box>

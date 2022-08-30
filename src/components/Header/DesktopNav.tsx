@@ -43,16 +43,11 @@ const DesktopNav: React.FC<{
               >
                 <HStack mr={3}>
                   <Text
-                    letterSpacing={1}
                     fontFamily={"Space Mono"}
                     fontSize={12}
                     color={colors.primary}
                   >{`0${index + 1}.`}</Text>
-                  <Text
-                    fontSize={12}
-                    letterSpacing={1}
-                    fontFamily={"Space Mono"}
-                  >
+                  <Text fontSize={12} fontFamily={"Space Mono"}>
                     {navItem.label}
                   </Text>
                 </HStack>

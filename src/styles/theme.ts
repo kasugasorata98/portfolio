@@ -4,6 +4,7 @@
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 import "@fontsource/space-mono";
 import "@fontsource/roboto";
+
 // 2. Add your color mode config
 const config: ThemeConfig = {
     initialColorMode: 'light',

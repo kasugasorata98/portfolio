@@ -34,43 +34,19 @@ const NAV_ITEMS: Array<NavItem> = [
     key: "about",
   },
   {
+    label: "Work",
+    href: "#work",
+    key: "work",
+  },
+  {
     label: "Projects",
-    children: [
-      {
-        label: "Pizza Ordering System",
-        subLabel: "A pizza ordering system made better",
-        href: "#",
-      },
-      {
-        label: "Binance Crypto Trade Bot",
-        subLabel: "24/7 Automated Trading",
-        href: "#",
-      },
-    ],
+    href: "#projects",
+    key: "projects",
   },
   {
     label: "Skills",
-    href: "#",
-  },
-  {
-    label: "Work",
-    children: [
-      {
-        label: "Bridzia Sdn Bhd",
-        subLabel: "Leading omnichannel eCommerce solutions provider",
-        href: "https://bridzia.com.my/",
-      },
-      {
-        label: "Astro Sdn Bhd",
-        subLabel: "All-Asian Satellite Television and Radio Operator",
-        href: "https://www.astro.com.my/",
-      },
-      {
-        label: "Naluri Hidup Sdn Bhd",
-        subLabel: "An evidence-based digital health solution",
-        href: "https://www.naluri.life/",
-      },
-    ],
+    href: "#skills",
+    key: "skills",
   },
   {
     label: "Contact",
@@ -140,8 +116,8 @@ const Header: React.FC<{
           width={"100vw"}
           color={useColorModeValue("gray.600", "white")}
           boxShadow={showShadow ? "md" : "none"}
-          paddingBlock={{ base: 5, md: 5 }}
-          paddingInline={{ base: 5, md: 5 }}
+          paddingBlock={3}
+          paddingInline={8}
           backdropFilter={"blur(10px) saturate(100%)"}
           opacity={showHeader ? 1 : 0}
           transition={"0.5s"}
