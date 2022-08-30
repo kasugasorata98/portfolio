@@ -63,7 +63,10 @@ const Home = () => {
                 fontSize={{ base: "24px", md: "48px", lg: "60px", xl: "65px" }}
                 color={colors.darkText}
               >
-                <TypeAnimation sequence={[2000, "Software Engineer."]} />
+                <TypeAnimation
+                  cursor={false}
+                  sequence={[2000, "Software Engineer."]}
+                />
               </Text>
               <Text
                 letterSpacing={1}
