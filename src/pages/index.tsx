@@ -1,4 +1,4 @@
-import { Box, useMediaQuery } from "@chakra-ui/react";
+import { Box, useMediaQuery, useToast } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import Scrollbar from "../components/Scrollbar";
 import { PageReference, ScrollFrame } from "../entities/types";
@@ -33,6 +33,18 @@ export default function Index() {
     about: useRef<HTMLDivElement>(null),
     work: useRef<HTMLDivElement>(null),
   };
+
+  const toast = useToast();
+
+  useEffect(() => {
+    toast({
+      title: "Under Development",
+      description: "This website is currently under development",
+      status: "info",
+      duration: 5000,
+      isClosable: true,
+    });
+  }, []);
   return (
     <>
       {isLoading ? (
