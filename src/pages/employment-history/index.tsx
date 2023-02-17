@@ -32,49 +32,64 @@ const employmentHistory: EmploymentDetails[] = [
   {
     employee: "Naluri Hidup Sdn Bhd",
     jobTitle: "Full Stack Software Engineer",
-    content: `Currently owning a couple of domains 
-    which are identity and internal tools. 
-    Frequently interviewing candidates for the engineering team. 
-    Expanding my knowledge in aws cloud infra to eventually 
-    become a devop. React and react native comes as a second 
-    nature at this point for web and mobile application development 
-    while Node.js being the backend of things.`,
+    content: `As a Full Stack Software Engineer at Naluri, I worked with
+    a range of technologies including Typescript, Javascript, Postgres,
+    AWS services, React, React Native, Nextjs, and Nestjs. My main project
+    involved creating a login/register mechanism that streamlined the
+    integration process for clients and provided a more seamless
+    authentication experience. In addition, I helped other engineering
+    squads with bug fixing and provided support as needed. 
+    My versatile skill set allowed me to work effectively across
+    all platforms, including web, mobile, and backend development.`,
     startDate: "Mar 2022",
     endDate: "Present",
   },
   {
     employee: "Astro Malaysia Holdings Berhad",
     jobTitle: "Associate Software Engineer",
-    content: `Being a backend engineer using NodeJS with MySQL and 
-    AWS DynamoDB as the database and AWS Lambda for RestAPI. Using 
-    Git for version control, and working in an agile environment. 
-    Knowledge of Javascript was intensified during my time in Astro. 
-    Worked with vendors from India and Vietnam which challenged my 
-    communication skills and improved my communication skills with 
-    engineers from a foreign country.`,
+    content: `As a Backend Engineer at Astro, I focused on using NodeJS 
+    as the main programming language, with MySQL and AWS DynamoDB as the 
+    main databases, and AWS Lambda for building RestAPIs. I gained significant 
+    experience working with Git for version control, and also worked in an 
+    agile development environment. During my time at Astro, I improved my 
+    proficiency in Javascript and honed my technical skills in database 
+    management and RestAPI development.`,
     startDate: "Jul 2021",
     endDate: "Mar 2022",
   },
   {
     employee: "Bridzia Sdn Bhd",
     jobTitle: "Junior Software Engineer",
-    content: `Develop native android apps in Android Studio while using 
-    dependencies such as RxJava and Retrofit, and hybrid apps with the 
-    React Native framework. Also learned to develop my own backend from 
-    scratch using node js and improved my knowledge in terms of using more 
-    complex SQL queries. All projects are e-commerce projects done for clients 
-    such as Guardian, QRA, F&N, Mydin and many more.`,
+    content: `During my tenure as an Android Developer, I have developed native 
+    Android applications using Android Studio and incorporated dependencies such as 
+    RxJava and Retrofit to enhance application performance. In addition, I have 
+    also built hybrid apps with the React Native framework to create cross-platform applications.
+    One of my major achievements was learning how to develop a backend from 
+    scratch using Node.js and increasing my proficiency in writing complex SQL 
+    queries. My experience in e-commerce projects involved working with clients 
+    such as Guardian, QRA, F&N, Mydin, and many more, and has enabled me to gain 
+    valuable insights into the industry, including e-commerce best practices, 
+    user experience, and app design. Overall, my Android development experience 
+    has equipped me with the technical skills and expertise to deliver robust 
+    and scalable applications to a diverse range of clients.`,
     startDate: "Oct 2020",
     endDate: "Jul 2021",
   },
   {
     employee: "Sushi King Sdn Bhd",
     jobTitle: "Intern Software Engineer",
-    content: `Developed an in-house food ordering android app. The food ordering
-     app is integrated with the POS system and kitchen display system. 
-     I further improved my skills as a fullstack developer, using PHP 
-     as the backend along with PHPMyAdmin for the MYSQL database and Android 
-     Native in Java for the frontend.`,
+    content: `During my time as a Fullstack Developer, I led the development of 
+    an in-house food ordering Android app that was integrated with the POS system 
+    and kitchen display system. This involved designing and developing the app's 
+    backend using PHP and managing the database using PHPMyAdmin, while also developing 
+    the frontend using Android Native in Java. This project enabled me to gain 
+    significant expertise in full-stack development and sharpen my technical skills 
+    in PHP and Java, including designing and building APIs, optimizing database queries, 
+    and improving app performance. Furthermore, I learned how to effectively integrate 
+    multiple systems and technologies to create a seamless user experience for 
+    customers and staff. Overall, this project has given me the skills and experience 
+    necessary to excel in full-stack development and deliver high-quality, integrated 
+    solutions to clients.`,
     startDate: "Dec 2019",
     endDate: "Mar 2020",
   },
