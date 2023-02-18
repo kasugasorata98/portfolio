@@ -16,6 +16,7 @@
     "@fontsource/roboto": "^4.5.7",
     "@fontsource/space-mono": "^4.5.8",
     "@vercel/analytics": "^0.1.5",
+    "TagCloud": "^2.3.2",
     "ci": "^2.2.0",
     "express": "^4.18.1",
     "framer-motion": "^6.5.1",

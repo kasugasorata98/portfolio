@@ -11,6 +11,7 @@ import React from "react";
 import Scrollbars from "react-custom-scrollbars-2";
 import Util from "../util";
 import EmploymentHistory from "./employment-history";
+import Skills from "./skills";
 
 export default function Index() {
   const [_, setScrollFrame] = useState<ScrollFrame>({
@@ -32,6 +33,7 @@ export default function Index() {
     home: useRef<HTMLDivElement>(null),
     about: useRef<HTMLDivElement>(null),
     work: useRef<HTMLDivElement>(null),
+    skills: useRef<HTMLDivElement>(null),
   };
 
   const toast = useToast();
@@ -92,7 +94,9 @@ export default function Index() {
             <Box ref={pageReference.work}>
               <EmploymentHistory />
             </Box>
-            <Box height={"100vh"}>{/* Leave this empty for now */}</Box>
+            <Box ref={pageReference.skills}>
+              <Skills />
+            </Box>
           </MainLayout>
         </Scrollbar>
       )}
