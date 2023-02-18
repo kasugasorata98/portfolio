@@ -113,6 +113,7 @@ const Skills = () => {
                 mb={2}
                 fontSize={17}
                 color={colors.darkText}
+                paddingInline={{ base: 5, md: 0 }}
                 // textAlign={"justify"}
               >
                 {`As a software engineer, I have gathered a wide range of
