@@ -115,15 +115,15 @@ const Skills = () => {
                 color={colors.darkText}
                 // textAlign={"justify"}
               >
-                As a software engineer, I have gathered a wide range of
-                technical and non-technical skills in my quest to become a
-                strong individual contributor capable of leading projects from
-                ideation to fruition. With these skills, I am now equipped to
-                not only generate a plan for a project but also implement it
-                with a diverse range of technologies from my arsenal. Whether
-                it's coding, design, or project management, I possess the
-                necessary expertise to take on any challenge and deliver
-                high-quality software solutions that exceed expectations.
+                {`As a software engineer, I have gathered a wide range of
+                    technical and non-technical skills in my quest to become a
+                    strong individual contributor capable of leading projects from
+                    ideation to fruition. With these skills, I am now equipped to
+                    not only generate a plan for a project but also implement it
+                    with a diverse range of technologies from my arsenal. Whether
+                    it's coding, design, or project management, I possess the
+                    necessary expertise to take on any challenge and deliver
+                    high-quality software solutions that exceed expectations.`}
               </Text>
             </Stack>
           </VStack>
