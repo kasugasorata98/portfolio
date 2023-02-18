@@ -39,7 +39,7 @@ const Skills = () => {
         "Typeorm",
       ],
       {
-        radius: 200,
+        radius: 190,
         useContainerInlineStyles: true,
         useItemInlineStyles: true,
         maxSpeed: "normal",
