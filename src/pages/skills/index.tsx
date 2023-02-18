@@ -68,7 +68,7 @@ const Skills = () => {
         >
           <VStack
             width={{
-              base: "85%",
+              base: "80%",
               md: "80%",
               lg: "70%",
               xl: "60%",
