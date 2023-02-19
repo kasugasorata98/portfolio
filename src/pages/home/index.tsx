@@ -76,7 +76,7 @@ const Home = () => {
               >
                 {`
           I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences.
-          Currently, I'm focused on building my knowledge and experience on cloud infra to eventually be a devops at
+          Currently, I'm focused on building my knowledge and experience at
           `}
                 <Link
                   target="_blank"
