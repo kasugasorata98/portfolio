@@ -14,9 +14,30 @@ const AudioPlayer: React.FC<{
     }
   }, [play, audioRef]);
 
+  useEffect(() => {
+    const audioElement = audioRef.current;
+
+    const handleEnded = () => {
+      if (!audioElement) return;
+      if (!play) return;
+      audioElement.currentTime = 0;
+      audioElement.play();
+    };
+
+    if (audioElement) {
+      audioElement.addEventListener("ended", handleEnded);
+    }
+
+    return () => {
+      if (audioElement) {
+        audioElement.removeEventListener("ended", handleEnded);
+      }
+    };
+  }, [audioRef]);
+
   return (
     <div>
-      <audio ref={audioRef} autoPlay={true}>
+      <audio ref={audioRef}>
         <source src="/assets/music/TevaBoss.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
