@@ -173,7 +173,8 @@ const Header: React.FC<{
                 style={{
                   textDecoration: "none",
                 }}
-                href={"https://resume.io/r/oqPCVLgfX"}
+                download={"jeromy_kho_resume_12-02-2023.pdf"}
+                href="/assets/files/resume.pdf"
               >
                 Resume
               </Link>
