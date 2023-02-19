@@ -27,6 +27,8 @@ import ReactPlayer from "react-player";
 import MusicAnimation from "../../lotties/music.json";
 import Lottie from "lottie-react";
 import Scrollbars from "react-custom-scrollbars-2";
+import AudioPlayer from "../AudioPlayer";
+import Dialog from "../Dialog";
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "About",
@@ -37,11 +39,6 @@ const NAV_ITEMS: Array<NavItem> = [
     label: "Work",
     href: "#work",
     key: "work",
-  },
-  {
-    label: "Projects",
-    href: "#projects",
-    key: "projects",
   },
   {
     label: "Skills",
@@ -90,19 +87,27 @@ const Header: React.FC<{
   function scrollTo(key: string) {
     scrollRef.current?.scrollTop(pageReference[key].current?.offsetTop || 0);
   }
+  const [play, setPlay] = useState<boolean>(false);
+  useEffect(() => {
+    const handleFocus = () => {
+      setPlay(true);
+    };
+    document.addEventListener("mousedown", handleFocus);
+    return () => {
+      document.removeEventListener("mousedown", handleFocus);
+    };
+  }, []);
 
   return (
     <Box>
-      {hasWindow && (
-        <ReactPlayer
-          width={0}
-          height={0}
-          loop={true}
-          playing={true}
-          muted={isMuted}
-          url="https://www.youtube.com/watch?v=tYNv5td6ALU"
-        />
-      )}
+      {hasWindow &&
+        (() => {
+          return (
+            <>
+              <AudioPlayer play={play} />
+            </>
+          );
+        })()}
       <ChakraBox
         initial={{ opacity: 0, x: "-50%" }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -183,23 +188,23 @@ const Header: React.FC<{
 
           <Tooltip
             placement="bottom-start"
-            label={isMuted ? "Press to Play" : "Press to Stop"}
+            label={play ? "Press to Stop" : "Press to Play"}
           >
             <Box
               _hover={{
                 cursor: "pointer",
               }}
               onClick={() => {
-                setMuted(!isMuted);
+                setPlay(!play);
               }}
               width={14}
             >
               <Lottie
                 animationData={MusicAnimation}
                 disabled={!hasWindow}
-                autoplay={!isMuted}
-                loop={!isMuted}
-                onClick={() => setMuted(!isMuted)}
+                autoplay={play}
+                loop={play}
+                onClick={() => setPlay(!play)}
               />
             </Box>
           </Tooltip>

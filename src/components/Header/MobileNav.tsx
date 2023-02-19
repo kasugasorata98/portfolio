@@ -85,8 +85,12 @@ const MobileNavItem: React.FC<{
           align={"start"}
         >
           {NAV_ITEM.children &&
-            NAV_ITEM.children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+            NAV_ITEM.children.map((child, index) => (
+              <Link
+                key={child.label + index.toString()}
+                py={2}
+                href={child.href}
+              >
                 {child.label}
               </Link>
             ))}

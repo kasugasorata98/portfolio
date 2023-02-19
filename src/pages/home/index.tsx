@@ -1,5 +1,4 @@
-import { Box, Button, Flex, Link, Stack, Text, VStack } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { Box, Button, Link, Stack, Text, VStack } from "@chakra-ui/react";
 import { TypeAnimation } from "react-type-animation";
 import ChakraBox from "../../components/ChakraBox";
 import colors from "../../styles/colors";

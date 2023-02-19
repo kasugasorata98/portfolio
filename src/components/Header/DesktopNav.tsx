@@ -31,7 +31,7 @@ const DesktopNav: React.FC<{
               <Link
                 href={navItem.href ?? "#"}
                 onClick={() => {
-                  scrollTo(navItem.key ?? "");
+                  navItem.key && scrollTo(navItem.key);
                 }}
                 fontSize={13}
                 fontWeight={400}

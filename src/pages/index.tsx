@@ -12,6 +12,7 @@ import Scrollbars from "react-custom-scrollbars-2";
 import Util from "../util";
 import EmploymentHistory from "./employment-history";
 import Skills from "./skills";
+import Dialog from "../components/Dialog";
 
 export default function Index() {
   const [_, setScrollFrame] = useState<ScrollFrame>({
@@ -38,15 +39,6 @@ export default function Index() {
 
   const toast = useToast();
 
-  useEffect(() => {
-    toast({
-      title: "Under Development",
-      description: "This website is currently under development",
-      status: "info",
-      duration: 5000,
-      isClosable: true,
-    });
-  }, []);
   return (
     <>
       {isLoading ? (
