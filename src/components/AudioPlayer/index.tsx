@@ -7,6 +7,7 @@ const AudioPlayer: React.FC<{
 
   useEffect(() => {
     if (audioRef.current && play) {
+      audioRef.current.currentTime = 0;
       audioRef.current.play();
     } else {
       audioRef.current?.pause();
@@ -15,7 +16,7 @@ const AudioPlayer: React.FC<{
 
   return (
     <div>
-      <audio ref={audioRef}>
+      <audio ref={audioRef} autoPlay={true}>
         <source src="/assets/music/TevaBoss.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
