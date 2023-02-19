@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 
 const AudioPlayer: React.FC<{
   play: boolean;
@@ -13,27 +13,6 @@ const AudioPlayer: React.FC<{
       audioRef.current?.pause();
     }
   }, [play, audioRef]);
-
-  useEffect(() => {
-    const audioElement = audioRef.current;
-
-    const handleEnded = () => {
-      if (!audioElement) return;
-      if (!play) return;
-      audioElement.currentTime = 0;
-      audioElement.play();
-    };
-
-    if (audioElement) {
-      audioElement.addEventListener("ended", handleEnded);
-    }
-
-    return () => {
-      if (audioElement) {
-        audioElement.removeEventListener("ended", handleEnded);
-      }
-    };
-  }, [audioRef]);
 
   return (
     <div>
