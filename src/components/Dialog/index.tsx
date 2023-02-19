@@ -25,13 +25,17 @@ const Dialog: React.FC<{
   return (
     <>
       <AlertDialog
+        isCentered
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
         onClose={onClose}
+        size={"xs"}
+        closeOnOverlayClick={false}
+        closeOnEsc={false}
       >
         <AlertDialogOverlay>
           <AlertDialogContent>
-            <AlertDialogHeader fontSize="medium">{title}</AlertDialogHeader>
+            <AlertDialogHeader fontSize="sm">{title}</AlertDialogHeader>
             <AlertDialogFooter>
               {onCancel && (
                 <Button
