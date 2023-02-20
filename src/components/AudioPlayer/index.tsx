@@ -14,6 +14,23 @@ const AudioPlayer: React.FC<{
     }
   }, [play, audioRef]);
 
+  useEffect(() => {
+    const audioElement = audioRef.current;
+    if (!audioElement) return;
+
+    const handleEnded = () => {
+      console.log("has ended");
+      audioElement.currentTime = 0;
+      audioElement.play();
+    };
+
+    audioElement.addEventListener("ended", handleEnded);
+
+    return () => {
+      audioElement.removeEventListener("ended", handleEnded);
+    };
+  }, [audioRef]);
+
   return (
     <div>
       <audio ref={audioRef}>
