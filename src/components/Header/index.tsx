@@ -164,7 +164,7 @@ const Header: React.FC<{
               fontFamily={"Space Mono"}
               fontSize={13}
               color={colors.primary}
-              display={{ base: "none", md: "none", lg: "flex" }}
+              // display={{ base: "none", md: "none", lg: "flex" }}
               fontWeight={500}
               borderColor={colors.primary}
               borderWidth={2}
