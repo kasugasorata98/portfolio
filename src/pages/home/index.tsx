@@ -69,8 +69,6 @@ const Home = () => {
               </Text>
               <Text
                 letterSpacing={1}
-                mt={5}
-                // mr={{ base: 0, md: 150, lg: 300, xl: 450 }}
                 fontSize={{ base: "13px", md: "15px", lg: "16px" }}
                 color={colors.darkText}
               >
@@ -92,7 +90,31 @@ const Home = () => {
                 </Link>
                 {"."}
               </Text>
-              <Box paddingTop="10">
+
+              <Text
+                letterSpacing={1}
+                pt={2}
+                fontSize={{ base: "13px", md: "15px", lg: "16px" }}
+                color={colors.darkText}
+              >
+                {`
+          Download my
+          `}
+                <Link
+                  target="_blank"
+                  textDecoration="none"
+                  _hover={{
+                    textDecoration: "underline",
+                  }}
+                  color={colors.primary}
+                  letterSpacing={1}
+                  href="https://www.naluri.life/"
+                >
+                  resume
+                </Link>
+                {"."}
+              </Text>
+              <Box paddingTop="5">
                 <Button
                   fontFamily={"Space Mono"}
                   colorScheme={"none"}
@@ -120,14 +142,6 @@ const Home = () => {
                 </Button>
               </Box>
             </VStack>
-            {/* <Flex
-              height={"100%"}
-              justify={"center"}
-              alignSelf="center"
-              direction={"column"}
-              bg="blue"
-              // marginInline={{ base: 10, md: 75, lg: 100, xl: 200 }}
-            ></Flex> */}
           </Box>
         </Stack>
       </ChakraBox>

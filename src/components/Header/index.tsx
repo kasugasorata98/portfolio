@@ -2,33 +2,26 @@ import {
   Box,
   Flex,
   IconButton,
-  Button,
-  Stack,
   Collapse,
   useColorModeValue,
   useDisclosure,
   Image,
   HStack,
-  Link,
-  Text,
-  FormLabel,
-  Switch,
   Tooltip,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import colors from "../../styles/colors";
 import { useRouter } from "next/router";
-import { NavItem, PageReference, ScrollFrame } from "../../entities/types";
+import { NavItem, PageReference } from "../../entities/types";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
-import { Ref, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ChakraBox from "../ChakraBox";
-import ReactPlayer from "react-player";
 import MusicAnimation from "../../lotties/music.json";
 import Lottie from "lottie-react";
 import Scrollbars from "react-custom-scrollbars-2";
 import AudioPlayer from "../AudioPlayer";
-import Dialog from "../Dialog";
+
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: "About",
@@ -75,9 +68,8 @@ const Header: React.FC<{
 }> = ({ showShadow, showHeader, pageReference, scrollRef }) => {
   const router = useRouter();
   const { isOpen, onToggle } = useDisclosure();
-
   const [hasWindow, setHasWindow] = useState(false);
-  const [isMuted, setMuted] = useState(true);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setHasWindow(true);
@@ -158,33 +150,6 @@ const Header: React.FC<{
               <DesktopNav NAV_ITEMS={NAV_ITEMS} scrollTo={scrollTo} />
             </Flex>
           </HStack>
-          <Box>
-            <Button
-              colorScheme={"none"}
-              fontFamily={"Space Mono"}
-              fontSize={13}
-              color={colors.primary}
-              // display={{ base: "none", md: "none", lg: "flex" }}
-              fontWeight={500}
-              borderColor={colors.primary}
-              borderWidth={2}
-              bg={colors.background}
-              _hover={{
-                bg: colors.hoverDark,
-              }}
-            >
-              <Link
-                target="_blank"
-                style={{
-                  textDecoration: "none",
-                }}
-                download={"jeromy_kho_resume_12-02-2023.pdf"}
-                href="/assets/files/resume.pdf"
-              >
-                Resume
-              </Link>
-            </Button>
-          </Box>
 
           <Tooltip
             placement="bottom-start"
