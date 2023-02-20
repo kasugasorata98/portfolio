@@ -108,7 +108,8 @@ const Home = () => {
                   }}
                   color={colors.primary}
                   letterSpacing={1}
-                  href="https://www.naluri.life/"
+                  download={"jeromy_kho_resume_12-02-2023.pdf"}
+                  href="/assets/files/resume.pdf"
                 >
                   resume
                 </Link>
