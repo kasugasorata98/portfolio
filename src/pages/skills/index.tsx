@@ -51,7 +51,7 @@ const Skills = () => {
   return (
     <Box paddingBlock={20}>
       <ChakraBox
-        height="500"
+        // height="500"
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
@@ -67,13 +67,7 @@ const Skills = () => {
           justifyContent={"center"}
         >
           <VStack
-            width={{
-              base: "80%",
-              md: "80%",
-              lg: "70%",
-              xl: "60%",
-              "2xl": "50%",
-            }}
+            width={{ base: "90%", md: "60%", lg: "55%", xl: "40%" }}
             alignItems={"center"}
             justifyContent={"center"}
           >
