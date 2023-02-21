@@ -115,7 +115,7 @@ const Header: React.FC<{
           boxShadow={showShadow ? "md" : "none"}
           paddingBlock={3}
           paddingInline={8}
-          backdropFilter={"blur(10px) saturate(100%)"}
+          backdropFilter={"blur(1px) saturate(100%)"}
           opacity={showHeader ? 1 : 0}
           transition={"0.5s"}
         >
