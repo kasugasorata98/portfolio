@@ -68,7 +68,7 @@ const MainLayout: React.FC<{
           />
           <Dialog
             title="By accessing and using this website, you acknowledge and agree to experience its full range of features and capabilities, to enhance your user experience and achieve your intended objectives"
-            confirmTitle="Concent"
+            confirmTitle="Consent"
             cancelTitle="Refuse"
             onConfirm={() => {
               setConsent(true);
