@@ -62,12 +62,13 @@ const Skills = () => {
         }}
       >
         <Stack
+
           direction={{ base: "column", md: "row" }}
           alignItems={"center"}
           justifyContent={"center"}
         >
           <VStack
-            width={{ base: "90%", md: "60%", lg: "55%", xl: "40%" }}
+            width={{ base: "90%", md: "60%", lg: "55%", xl: "55%" }}
             alignItems={"center"}
             justifyContent={"center"}
           >
